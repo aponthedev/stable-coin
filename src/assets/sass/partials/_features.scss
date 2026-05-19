@@ -68,9 +68,9 @@
         radial-gradient(
           60% 60% at 50% 0%,
           hsl(var(--base) / 0.08) 0%,
-          transparent 80%
+          hsl(var(--base) / 0) 80%
         ),
-        linear-gradient(180deg, #181818 0%, #111111 100%);
+        linear-gradient(180deg, hsl(0 0% 9%) 0%, hsl(0 0% 7%) 100%);
       border-radius: 23px;
       z-index: -1;
       transition: background 0.3s ease;
@@ -85,9 +85,9 @@
           radial-gradient(
             60% 60% at 50% 0%,
             hsl(var(--base) / 0.15) 0%,
-            transparent 80%
+            hsl(var(--base) / 0) 80%
           ),
-          linear-gradient(180deg, #1c1c1c 0%, #111111 100%);
+          linear-gradient(180deg, hsl(0 0% 11%) 0%, hsl(0 0% 7%) 100%);
       }
     }
   }
@@ -95,19 +95,64 @@
   &__content,
   &__title {
     color: hsl(var(--base));
+
+    @include md-screen {
+      font-size: 22px;
+    }
   }
   &__image {
     position: relative;
     z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 150px;
+    padding-top: 8px;
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   &__desc {
     margin-bottom: 24px;
+    font-size: 16px;
+
+    @include md-screen {
+      font-size: 14px;
+    }
   }
 }
 
 .features__two {
-  position: absolute;
-  top: 26px;
+  position: relative;
+  top: auto;
+}
+
+@media (max-width: 991px) {
+  .features {
+    &__card {
+      min-height: 336px;
+      padding-right: 24px;
+    }
+
+    &__image {
+      min-height: 150px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .features {
+    &__card {
+      min-height: auto;
+    }
+
+    &__image {
+      min-height: 130px;
+    }
+  }
 }
 /* ======================  Features Section End  ======================*/

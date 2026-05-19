@@ -23,9 +23,10 @@
   border: 1px solid transparent;
   font-family: var(--body-font);
   display: inline-flex;
-  gap: 8px;
+  gap: 10px;
   font-size: 16px;
   line-height: 1;
+  justify-content: center;
 
   @include sm-screen {
     padding: 14px 25px;

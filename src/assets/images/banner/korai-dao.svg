@@ -1,0 +1,24 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22FF55" />
+      <stop offset="100%" stop-color="#0E8B3A" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="40" y="40" width="520" height="520" rx="48" fill="url(#paint0_linear)" filter="url(#glow)" />
+  <rect x="80" y="80" width="440" height="440" rx="36" fill="#08170B" opacity="0.92" />
+  <circle cx="200" cy="200" r="72" fill="#1B7E32" opacity="0.9" />
+  <circle cx="400" cy="180" r="42" fill="#2CE56E" opacity="0.85" />
+  <circle cx="360" cy="380" r="28" fill="#49FF7A" opacity="0.9" />
+  <path d="M180 336C206.091 336 244 313 288 289C330 266 362 252 400 252" stroke="#8FF7A8" stroke-width="12" stroke-linecap="round" />
+  <path d="M180 280H420" stroke="#8FF7A8" stroke-width="12" stroke-linecap="round" />
+  <text x="300" y="470" text-anchor="middle" fill="#F7FFF4" font-family="Inter, sans-serif" font-size="68" font-weight="700">KORAI</text>
+  <text x="300" y="532" text-anchor="middle" fill="#B9FFB8" font-family="Inter, sans-serif" font-size="34" font-weight="600">DAO</text>
+</svg>

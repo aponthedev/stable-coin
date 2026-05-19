@@ -44,24 +44,41 @@
 .section-heading__title {
   font-size: 60px;
   margin-bottom: 16px;
-  // background: linear-gradient(95deg, hsl(var(--base)), hsl(var(--base-two)));
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
+
   color: hsl(var(--white));
 
-  margin-top: 24px;
+  @include xl-screen {
+    font-size: 51px;
+  }
+
+  @include lg-screen {
+    font-size: 42px;
+  }
+
+  @include md-screen {
+    font-size: 38px;
+  }
+
+  @include msm-screen {
+    font-size: 26px;
+  }
 
   span {
     color: hsl(var(--base));
   }
 }
+.section-heading__desc {
+  font-size: 16px;
 
-.section__heading a {
-  margin-top: 40px;
-
-  @include sm-screen {
-    margin-top: 24px;
+  @include md-screen {
+    font-size: 14px;
   }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--base)), hsl(var(--base-two)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ======================  Section Heading End  ======================*/

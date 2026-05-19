@@ -1,10 +1,6 @@
 .download-area {
   position: relative;
   overflow: hidden;
-  // background:
-  //   radial-gradient(circle at 12% 20%, hsl(116 90% 43% / 0.11), hsl(116 90% 43% / 0) 28%),
-  //   radial-gradient(circle at 90% 72%, hsl(72 100% 55% / 0.08), hsl(72 100% 55% / 0) 24%),
-  //   hsl(var(--body-bg));
 
   &__ambient {
     position: absolute;
@@ -264,7 +260,7 @@
     margin-bottom: 22px;
     color: hsl(var(--white));
     font-family: var(--heading-font);
-    font-size: 60px;
+    font-size: 55px;
     font-weight: 700;
     line-height: 0.98;
   }

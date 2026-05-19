@@ -49,13 +49,17 @@
         },
         768: {
           spaceBetween: 50,
-          slidesPerView: 3,
+          slidesPerView: 5,
         },
         1024: {
           spaceBetween: 60,
-          slidesPerView: 4,
+          slidesPerView: 6,
         },
         1499: {
+          spaceBetween: 60,
+          slidesPerView: 8,
+        },
+        1599: {
           spaceBetween: 60,
           slidesPerView: 8,
         },
@@ -231,112 +235,20 @@
 
   // ========================= Preloader & ScrollTrigger Js Start =====================
   // Safe Fallback to hide preloader if window load takes too long
-  setTimeout(function() {
+  setTimeout(function () {
     if ($('.preloader').is(':visible')) {
       $('.preloader').fadeOut(500);
     }
   }, 2000);
 
   // Allow clicking preloader to dismiss it
-  $(document).on('click', '.preloader', function() {
+  $(document).on('click', '.preloader', function () {
     $(this).fadeOut(500);
   });
 
   $(window).on('load', function () {
     // 1. Fade out preloader
-    $('.preloader').fadeOut(500, function() {
-      // 1.5 Hero Banner GSAP Animation (Premium Apple/Fasset style)
-      if ($('.banner__thumb').length && typeof gsap !== 'undefined') {
-        const tl = gsap.timeline();
-
-        // Initial setup
-        gsap.set('.banner__thumb-left', { x: 50, y: 30, scale: 0.8, opacity: 0 });
-        gsap.set('.banner__thumb-right', { x: -50, y: 30, scale: 0.8, opacity: 0 });
-        gsap.set('.banner__thumb-center', { y: 100, opacity: 0 });
-
-        // Entrance animation
-        tl.to('.banner__thumb-center', {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: 'power3.out'
-        })
-        .to('.banner__thumb-left', {
-          x: 0,
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 1,
-          ease: 'back.out(1.2)'
-        }, '-=0.6')
-        .to('.banner__thumb-right', {
-          x: 0,
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 1,
-          ease: 'back.out(1.2)'
-        }, '-=0.8');
-
-        // Continuous Hovering effect
-        tl.add(() => {
-          gsap.to('.banner__thumb-center', {
-            y: -15,
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut'
-          });
-          gsap.to('.banner__thumb-left', {
-            y: -10,
-            rotation: -2,
-            duration: 4,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: 0.5
-          });
-          gsap.to('.banner__thumb-right', {
-            y: -12,
-            rotation: 2,
-            duration: 3.5,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: 1
-          });
-        });
-
-        // 3D Mouse Parallax
-        $('.banner').on('mousemove', function(e) {
-          const xPos = (e.clientX / window.innerWidth - 0.5) * 20;
-          const yPos = (e.clientY / window.innerHeight - 0.5) * 20;
-
-          gsap.to('.banner__thumb-center', {
-            x: xPos * 1.5,
-            y: yPos * 1.5,
-            rotationY: xPos * 1.5,
-            rotationX: -yPos * 1.5,
-            duration: 1,
-            ease: 'power2.out'
-          });
-          gsap.to('.banner__thumb-left', {
-            x: xPos * -1,
-            y: yPos * -1,
-            rotationY: xPos,
-            duration: 1.5,
-            ease: 'power2.out'
-          });
-          gsap.to('.banner__thumb-right', {
-            x: xPos * 2,
-            y: yPos * 2,
-            rotationY: xPos * -1,
-            duration: 1.2,
-            ease: 'power2.out'
-          });
-        });
-      }
-
+    $('.preloader').fadeOut(500, function () {
       // 1.6 Continuous floating animation for Feature Card Images
       if ($('.features__image img').length && typeof gsap !== 'undefined') {
         gsap.utils.toArray('.features__image img').forEach((img, index) => {
@@ -345,7 +257,7 @@
             duration: 3 + index * 0.5, // slightly offset durations
             repeat: -1,
             yoyo: true,
-            ease: 'sine.inOut'
+            ease: 'sine.inOut',
           });
         });
       }
@@ -354,140 +266,176 @@
 
   // 2. Setup Step Tabs & ScrollTrigger only after layout is fully rendered
   $(window).on('load', function () {
-      if ($('.why-choose').length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
+    if (
+      $('.why-choose').length &&
+      typeof gsap !== 'undefined' &&
+      typeof ScrollTrigger !== 'undefined'
+    ) {
+      gsap.registerPlugin(ScrollTrigger);
 
-        // CRITICAL FIX: Prevent browser from restoring scroll position automatically before GSAP calculates pins.
-        if ('scrollRestoration' in history) {
-          history.scrollRestoration = 'manual';
-        }
-        ScrollTrigger.clearScrollMemory("manual");
+      // CRITICAL FIX: Prevent browser from restoring scroll position automatically before GSAP calculates pins.
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      ScrollTrigger.clearScrollMemory('manual');
 
-        const isDesktop = window.matchMedia('(min-width: 992px)');
+      const isDesktop = window.matchMedia('(min-width: 992px)');
 
-        if (isDesktop.matches) {
-          // 1. Master ScrollTrigger: Pin the entire section for 800px of scroll
-          const chooseTrigger = ScrollTrigger.create({
-            trigger: '.why-choose',
-            start: 'top top',
-            end: '+=800',
-            pin: true,
-            scrub: true,
-            onUpdate: (self) => {
-              const progress = self.progress;
-              let activeStep = 1;
+      if (isDesktop.matches) {
+        // 1. Master ScrollTrigger: Pin the entire section for 800px of scroll
+        const chooseTrigger = ScrollTrigger.create({
+          trigger: '.why-choose',
+          start: 'top top',
+          end: '+=800',
+          pin: true,
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            let activeStep = 1;
 
-              if (progress < 0.33) {
-                activeStep = 1;
-              } else if (progress >= 0.33 && progress < 0.66) {
-                activeStep = 2;
+            if (progress < 0.33) {
+              activeStep = 1;
+            } else if (progress >= 0.33 && progress < 0.66) {
+              activeStep = 2;
+            } else {
+              activeStep = 3;
+            }
+
+            if (
+              !$(
+                `.why-choose__steps .step-item[data-step="${activeStep}"]`
+              ).hasClass('active')
+            ) {
+              $('.why-choose__content-deck .content-block').removeClass(
+                'active'
+              );
+              $('.why-choose__steps .step-item').removeClass('active');
+              $('.phone-screen-wrapper').removeClass('active');
+              $('.phone-glow').removeClass('active');
+              $('.phone-frame')
+                .removeClass('step-active-1 step-active-2 step-active-3')
+                .addClass(`step-active-${activeStep}`);
+
+              $(`#content-block-${activeStep}`).addClass('active');
+              $(
+                `.why-choose__steps .step-item[data-step="${activeStep}"]`
+              ).addClass('active');
+              $(`#phone-screen-${activeStep}`).addClass('active');
+              $(`#phone-glow-${activeStep}`).addClass('active');
+
+              if (activeStep === 3) {
+                $('.scroll-guide-indicator .direction-down').removeClass(
+                  'active'
+                );
+                $('.scroll-guide-indicator .direction-up').addClass('active');
               } else {
-                activeStep = 3;
+                $('.scroll-guide-indicator .direction-up').removeClass(
+                  'active'
+                );
+                $('.scroll-guide-indicator .direction-down').addClass('active');
               }
+            }
 
-              if (!$(`.why-choose__steps .step-item[data-step="${activeStep}"]`).hasClass('active')) {
-                $('.why-choose__content-deck .content-block').removeClass('active');
+            gsap.to('.why-choose__progress-bar', {
+              height: `${progress * 100}%`,
+              duration: 0.1,
+              overwrite: 'auto',
+            });
+          },
+        });
+
+        // 2. 3D Device Parallax Tilt
+        gsap.fromTo(
+          '.phone-mockup .phone-frame',
+          { rotationY: -8, rotationX: 6, transformPerspective: 1000 },
+          {
+            rotationY: 8,
+            rotationX: 2,
+            transformPerspective: 1000,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '.why-choose',
+              start: 'top top',
+              end: '+=800',
+              scrub: 1.2,
+            },
+          }
+        );
+
+        // 3. Tab Click Handler
+        $('.why-choose__steps .step-item').on('click', function () {
+          const stepNum = $(this).data('step');
+          let targetProgress = 0;
+
+          if (stepNum === 1) targetProgress = 0.15;
+          if (stepNum === 2) targetProgress = 0.5;
+          if (stepNum === 3) targetProgress = 0.85;
+
+          const targetScrollTop =
+            chooseTrigger.start +
+            (chooseTrigger.end - chooseTrigger.start) * targetProgress;
+
+          $('html, body').stop().animate(
+            {
+              scrollTop: targetScrollTop,
+            },
+            800
+          );
+        });
+      } else {
+        // 4. Mobile Fallback
+        $('.why-choose__content-deck .content-block').each(function () {
+          const card = this;
+          const stepNum = $(card).data('step');
+
+          ScrollTrigger.create({
+            trigger: card,
+            start: 'top 60%',
+            end: 'bottom 40%',
+            onToggle: (self) => {
+              if (self.isActive) {
                 $('.why-choose__steps .step-item').removeClass('active');
                 $('.phone-screen-wrapper').removeClass('active');
-                $('.phone-glow').removeClass('active');
-                $('.phone-frame').removeClass('step-active-1 step-active-2 step-active-3').addClass(`step-active-${activeStep}`);
+                $('.phone-frame')
+                  .removeClass('step-active-1 step-active-2 step-active-3')
+                  .addClass(`step-active-${stepNum}`);
 
-                $(`#content-block-${activeStep}`).addClass('active');
-                $(`.why-choose__steps .step-item[data-step="${activeStep}"]`).addClass('active');
-                $(`#phone-screen-${activeStep}`).addClass('active');
-                $(`#phone-glow-${activeStep}`).addClass('active');
-
-                if (activeStep === 3) {
-                  $('.scroll-guide-indicator .direction-down').removeClass('active');
-                  $('.scroll-guide-indicator .direction-up').addClass('active');
-                } else {
-                  $('.scroll-guide-indicator .direction-up').removeClass('active');
-                  $('.scroll-guide-indicator .direction-down').addClass('active');
-                }
+                $(
+                  `.why-choose__steps .step-item[data-step="${stepNum}"]`
+                ).addClass('active');
+                $(`#phone-screen-${stepNum}`).addClass('active');
               }
-
-              gsap.to('.why-choose__progress-bar', {
-                height: `${progress * 100}%`,
-                duration: 0.1,
-                overwrite: 'auto'
-              });
-            }
+            },
           });
+        });
 
-          // 2. 3D Device Parallax Tilt
-          gsap.fromTo('.phone-mockup .phone-frame', 
-            { rotationY: -8, rotationX: 6, transformPerspective: 1000 },
-            {
-              rotationY: 8,
-              rotationX: 2,
-              transformPerspective: 1000,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: '.why-choose',
-                start: 'top top',
-                end: '+=800',
-                scrub: 1.2
-              }
-            }
-          );
+        $('.why-choose__steps .step-item').on('click', function () {
+          const stepNum = $(this).data('step');
+          const targetBlock = $(`#content-block-${stepNum}`);
 
-          // 3. Tab Click Handler
-          $('.why-choose__steps .step-item').on('click', function () {
-            const stepNum = $(this).data('step');
-            let targetProgress = 0;
-            
-            if (stepNum === 1) targetProgress = 0.15;
-            if (stepNum === 2) targetProgress = 0.50;
-            if (stepNum === 3) targetProgress = 0.85;
-
-            const targetScrollTop = chooseTrigger.start + (chooseTrigger.end - chooseTrigger.start) * targetProgress;
-
-            $('html, body').stop().animate({
-              scrollTop: targetScrollTop
-            }, 800);
-          });
-
-        } else {
-          // 4. Mobile Fallback
-          $('.why-choose__content-deck .content-block').each(function () {
-            const card = this;
-            const stepNum = $(card).data('step');
-
-            ScrollTrigger.create({
-              trigger: card,
-              start: 'top 60%',
-              end: 'bottom 40%',
-              onToggle: (self) => {
-                if (self.isActive) {
-                  $('.why-choose__steps .step-item').removeClass('active');
-                  $('.phone-screen-wrapper').removeClass('active');
-                  $('.phone-frame').removeClass('step-active-1 step-active-2 step-active-3').addClass(`step-active-${stepNum}`);
-                  
-                  $(`.why-choose__steps .step-item[data-step="${stepNum}"]`).addClass('active');
-                  $(`#phone-screen-${stepNum}`).addClass('active');
-                }
-              }
-            });
-          });
-
-          $('.why-choose__steps .step-item').on('click', function () {
-            const stepNum = $(this).data('step');
-            const targetBlock = $(`#content-block-${stepNum}`);
-            
-            if (targetBlock.length) {
-              $('html, body').stop().animate({
-                scrollTop: targetBlock.offset().top - 100
-              }, 800);
-            }
-          });
-        }
+          if (targetBlock.length) {
+            $('html, body')
+              .stop()
+              .animate(
+                {
+                  scrollTop: targetBlock.offset().top - 100,
+                },
+                800
+              );
+          }
+        });
       }
-    });
+    }
+  });
   // ========================= Preloader & ScrollTrigger Js End =====================
 
   // ========================= Usable Section GSAP Start =====================
   $(window).on('load', function () {
-    if ($('.usable').length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    if (
+      $('.usable').length &&
+      typeof gsap !== 'undefined' &&
+      typeof ScrollTrigger !== 'undefined'
+    ) {
       gsap.registerPlugin(ScrollTrigger);
 
       const isDesktop = window.matchMedia('(min-width: 992px)');
@@ -498,13 +446,13 @@
           rotationX: 12,
           rotationY: -10,
           rotationZ: 2,
-          z: -50
+          z: -50,
         });
 
         gsap.set('.phone-shell', {
           filter: 'blur(0px)',
           opacity: 1,
-          scale: 1
+          scale: 1,
         });
 
         gsap.set('.usable__card-wrapper', {
@@ -513,52 +461,64 @@
           z: 20,
           rotationX: 0,
           rotationY: 0,
-          rotationZ: 0
+          rotationZ: 0,
         });
 
         // GSAP ScrollTrigger timeline with PINNING for high-fidelity control
         const usableTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: '.usable',
-            start: 'top top', 
+            start: 'top top',
             end: '+=1000', // 1000px of elegant scroll depth
             scrub: 1,
-            pin: true,     // Pin the section
-            anticipatePin: 1
-          }
+            pin: true, // Pin the section
+            anticipatePin: 1,
+          },
         });
 
         // 1. Straighten the phone and bring it closer
-        usableTimeline.to('.usable__phone-container', {
+        usableTimeline
+          .to('.usable__phone-container', {
+            rotationX: 0,
+            rotationY: 0,
+            rotationZ: 0,
+            z: 50,
+            duration: 1,
+            ease: 'power2.out',
+          })
+          // 2. Zoom the Credit Card slightly in place and simultaneously blur & scale down the phone shell!
+          .to(
+            '.usable__card-wrapper',
+            {
+              y: -12, // Very subtle upward shift
+              scale: 1.15, // Zoom/scale up the card
+              z: 140, // Pop out in depth
+              rotationX: -6,
+              rotationY: 10,
+              rotationZ: -2,
+              duration: 1.5,
+              ease: 'power2.out',
+            },
+            '-=0.5'
+          )
+          .to(
+            '.phone-shell',
+            {
+              filter: 'blur(6px)',
+              opacity: 0.45,
+              scale: 0.94,
+              duration: 1.5,
+              ease: 'power2.out',
+            },
+            '-=1.5'
+          );
+      } else {
+        // Mobile fallback
+        gsap.set('.usable__phone-container', {
           rotationX: 0,
           rotationY: 0,
           rotationZ: 0,
-          z: 50,
-          duration: 1,
-          ease: 'power2.out'
-        })
-        // 2. Zoom the Credit Card slightly in place and simultaneously blur & scale down the phone shell!
-        .to('.usable__card-wrapper', {
-          y: -12,      // Very subtle upward shift
-          scale: 1.15, // Zoom/scale up the card
-          z: 140,      // Pop out in depth
-          rotationX: -6, 
-          rotationY: 10,
-          rotationZ: -2,
-          duration: 1.5,
-          ease: 'power2.out'
-        }, '-=0.5')
-        .to('.phone-shell', {
-          filter: 'blur(6px)',
-          opacity: 0.45,
-          scale: 0.94,
-          duration: 1.5,
-          ease: 'power2.out'
-        }, '-=1.5');
-
-      } else {
-        // Mobile fallback
-        gsap.set('.usable__phone-container', { rotationX: 0, rotationY: 0, rotationZ: 0 });
+        });
         gsap.set('.usable__card-wrapper', { xPercent: -50, y: -20, z: 20 });
       }
     }
@@ -567,44 +527,51 @@
 
   // ========================= Download Area GSAP Start =====================
   $(window).on('load', function () {
-    if ($('.download-area').length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    if (
+      $('.download-area').length &&
+      typeof gsap !== 'undefined' &&
+      typeof ScrollTrigger !== 'undefined'
+    ) {
       gsap.registerPlugin(ScrollTrigger);
 
       const downloadTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: '.download-area',
           start: 'top 68%',
-          toggleActions: 'play none none reverse'
-        }
+          toggleActions: 'play none none reverse',
+        },
       });
 
-      gsap.set('.download-area__topbar, .download-area__eyebrow, .download-area__title, .download-area__text, .download-area__stats, .download-area__actions', {
-        y: 36,
-        opacity: 0
-      });
+      gsap.set(
+        '.download-area__topbar, .download-area__eyebrow, .download-area__title, .download-area__text, .download-area__stats, .download-area__actions',
+        {
+          y: 36,
+          opacity: 0,
+        }
+      );
 
       gsap.set('.download-area__phone--main', {
         x: -90,
         y: 95,
         rotation: -17,
-        opacity: 0
+        opacity: 0,
       });
 
       gsap.set('.download-area__phone--side', {
         x: 95,
         y: 120,
         rotation: 18,
-        opacity: 0
+        opacity: 0,
       });
 
       gsap.set('.download-area__halo, .download-area__glass', {
         scale: 0.82,
-        opacity: 0
+        opacity: 0,
       });
 
       gsap.set('.download-area__shine', {
         xPercent: -40,
-        opacity: 0
+        opacity: 0,
       });
 
       downloadTimeline
@@ -612,51 +579,75 @@
           xPercent: 130,
           opacity: 1,
           duration: 1.2,
-          ease: 'power2.out'
+          ease: 'power2.out',
         })
-        .to('.download-area__topbar', {
-          y: 0,
-          opacity: 1,
-          duration: 0.75,
-          ease: 'power3.out'
-        }, '-=1')
-        .to('.download-area__eyebrow, .download-area__title, .download-area__text, .download-area__stats, .download-area__actions', {
-          y: 0,
-          opacity: 1,
-          duration: 0.86,
-          stagger: 0.075,
-          ease: 'power3.out'
-        }, '-=0.45')
-        .to('.download-area__halo', {
-          scale: 1,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'power2.out'
-        }, '-=0.58')
-        .to('.download-area__phone--main', {
-          x: 0,
-          y: 0,
-          rotation: -8,
-          opacity: 1,
-          duration: 1.05,
-          ease: 'back.out(1.2)'
-        }, '-=0.55')
-        .to('.download-area__phone--side', {
-          x: 0,
-          y: 64,
-          rotation: 10,
-          opacity: 0.96,
-          duration: 1.05,
-          ease: 'back.out(1.2)'
-        }, '-=0.85')
-        .to('.download-area__glass', {
-          scale: 1,
-          opacity: 1,
-          duration: 0.65,
-          stagger: 0.12,
-          ease: 'back.out(1.4)'
-        }, '-=0.45');
+        .to(
+          '.download-area__topbar',
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: 'power3.out',
+          },
+          '-=1'
+        )
+        .to(
+          '.download-area__eyebrow, .download-area__title, .download-area__text, .download-area__stats, .download-area__actions',
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.86,
+            stagger: 0.075,
+            ease: 'power3.out',
+          },
+          '-=0.45'
+        )
+        .to(
+          '.download-area__halo',
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out',
+          },
+          '-=0.58'
+        )
+        .to(
+          '.download-area__phone--main',
+          {
+            x: 0,
+            y: 0,
+            rotation: -8,
+            opacity: 1,
+            duration: 1.05,
+            ease: 'back.out(1.2)',
+          },
+          '-=0.55'
+        )
+        .to(
+          '.download-area__phone--side',
+          {
+            x: 0,
+            y: 64,
+            rotation: 10,
+            opacity: 0.96,
+            duration: 1.05,
+            ease: 'back.out(1.2)',
+          },
+          '-=0.85'
+        )
+        .to(
+          '.download-area__glass',
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.65,
+            stagger: 0.12,
+            ease: 'back.out(1.4)',
+          },
+          '-=0.45'
+        );
 
       gsap.to('.download-area__phone--main', {
         y: -14,
@@ -665,7 +656,7 @@
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
-        delay: 1.2
+        delay: 1.2,
       });
 
       gsap.to('.download-area__phone--side', {
@@ -675,7 +666,7 @@
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
-        delay: 1.4
+        delay: 1.4,
       });
 
       gsap.to('.download-area__glass', {
@@ -685,7 +676,7 @@
         yoyo: true,
         stagger: 0.28,
         ease: 'sine.inOut',
-        delay: 1.5
+        delay: 1.5,
       });
 
       $('.download-area__panel').on('mousemove', function (e) {
@@ -698,7 +689,7 @@
           y: yPos * -0.2,
           rotationY: xPos * 0.32,
           duration: 0.8,
-          ease: 'power2.out'
+          ease: 'power2.out',
         });
 
         gsap.to('.download-area__phone--side', {
@@ -706,31 +697,34 @@
           y: 64 + yPos * 0.18,
           rotationY: xPos * -0.32,
           duration: 0.8,
-          ease: 'power2.out'
+          ease: 'power2.out',
         });
 
         gsap.to('.download-area__glass', {
           x: xPos * 0.46,
           y: yPos * 0.36,
           duration: 0.8,
-          ease: 'power2.out'
+          ease: 'power2.out',
         });
 
         gsap.to('.download-area__halo', {
           x: xPos * 0.18,
           y: yPos * 0.12,
           duration: 0.8,
-          ease: 'power2.out'
+          ease: 'power2.out',
         });
       });
 
       $('.download-area__panel').on('mouseleave', function () {
-        gsap.to('.download-area__phone--main, .download-area__phone--side, .download-area__glass, .download-area__halo', {
-          x: 0,
-          rotationY: 0,
-          duration: 0.8,
-          ease: 'power2.out'
-        });
+        gsap.to(
+          '.download-area__phone--main, .download-area__phone--side, .download-area__glass, .download-area__halo',
+          {
+            x: 0,
+            rotationY: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+          }
+        );
       });
     }
   });
