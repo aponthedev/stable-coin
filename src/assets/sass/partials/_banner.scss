@@ -124,6 +124,12 @@
     transform-style: preserve-3d;
   }
 
+  &__thumb-orbit,
+  &__thumb-shadow {
+    position: absolute;
+    pointer-events: none;
+  }
+
   &__thumb-orbit {
     left: 50%;
     bottom: 92px;

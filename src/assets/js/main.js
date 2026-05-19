@@ -249,6 +249,156 @@
   $(window).on('load', function () {
     // 1. Fade out preloader
     $('.preloader').fadeOut(500, function () {
+      if ($('.banner').length && typeof gsap !== 'undefined') {
+        const bannerTimeline = gsap.timeline({
+          defaults: {
+            ease: 'power3.out',
+          },
+        });
+
+        gsap.set(
+          '.banner__heading__title, .banner__heading__desc, .banner__btn',
+          {
+            y: 36,
+            opacity: 0,
+          }
+        );
+
+        gsap.set('.banner__thumb-center', {
+          xPercent: -50,
+          y: 78,
+          rotation: -8,
+          scale: 0.92,
+          opacity: 0,
+          transformOrigin: 'center bottom',
+        });
+
+        gsap.set('.banner__thumb-right', {
+          x: 62,
+          y: 86,
+          rotation: 16,
+          scale: 0.9,
+          opacity: 0,
+          transformOrigin: 'center bottom',
+        });
+
+        gsap.set('.banner__thumb-orbit', {
+          xPercent: -50,
+          rotationX: 68,
+          scale: 0.86,
+          opacity: 0,
+          transformOrigin: 'center center',
+        });
+
+        gsap.set('.banner__thumb-shadow', {
+          xPercent: -50,
+          scale: 0.86,
+          opacity: 0,
+          transformOrigin: 'center center',
+        });
+
+        bannerTimeline
+          .to('.banner__heading__title', {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+          })
+          .to(
+            '.banner__heading__desc',
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.72,
+            },
+            '-=0.55'
+          )
+          .to(
+            '.banner__btn',
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.68,
+            },
+            '-=0.46'
+          )
+          .to(
+            '.banner__thumb-orbit, .banner__thumb-shadow',
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.08,
+            },
+            '-=0.6'
+          )
+          .to(
+            '.banner__thumb-center',
+            {
+              xPercent: -50,
+              y: 0,
+              rotation: -1,
+              scale: 1,
+              opacity: 1,
+              duration: 1,
+              ease: 'back.out(1.15)',
+            },
+            '-=0.62'
+          )
+          .to(
+            '.banner__thumb-right',
+            {
+              x: 0,
+              y: 24,
+              rotation: 8,
+              scale: 1,
+              opacity: 1,
+              duration: 1,
+              ease: 'back.out(1.15)',
+            },
+            '-=0.82'
+          );
+
+        gsap.to('.banner__thumb-center', {
+          y: -12,
+          rotation: -2.5,
+          duration: 4.8,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: 1.2,
+        });
+
+        gsap.to('.banner__thumb-right', {
+          y: 12,
+          rotation: 10,
+          duration: 5.2,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: 1.35,
+        });
+
+        gsap.to('.banner__thumb-orbit--outer', {
+          xPercent: -50,
+          rotationX: 68,
+          rotation: 360,
+          duration: 18,
+          repeat: -1,
+          ease: 'none',
+          transformOrigin: 'center center',
+        });
+
+        gsap.to('.banner__thumb-orbit--inner', {
+          xPercent: -50,
+          rotationX: 68,
+          rotation: -360,
+          duration: 22,
+          repeat: -1,
+          ease: 'none',
+          transformOrigin: 'center center',
+        });
+      }
+
       // 1.6 Continuous floating animation for Feature Card Images
       if ($('.features__image img').length && typeof gsap !== 'undefined') {
         gsap.utils.toArray('.features__image img').forEach((img, index) => {
@@ -279,9 +429,27 @@
       }
       ScrollTrigger.clearScrollMemory('manual');
 
-      const isDesktop = window.matchMedia('(min-width: 992px)');
+      const isDesktop = window.matchMedia('(min-width: 1200px)');
 
       if (isDesktop.matches) {
+        gsap.set('.why-choose .container', {
+          scale: 0.965,
+          transformOrigin: 'center center',
+          force3D: true,
+          willChange: 'transform',
+        });
+
+        gsap.to('.why-choose .container', {
+          scale: 1.015,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.why-choose',
+            start: 'top 82%',
+            end: 'top 18%',
+            scrub: 1.2,
+          },
+        });
+
         // 1. Master ScrollTrigger: Pin the entire section for 800px of scroll
         const chooseTrigger = ScrollTrigger.create({
           trigger: '.why-choose',
@@ -396,6 +564,7 @@
               if (self.isActive) {
                 $('.why-choose__steps .step-item').removeClass('active');
                 $('.phone-screen-wrapper').removeClass('active');
+                $('.phone-glow').removeClass('active');
                 $('.phone-frame')
                   .removeClass('step-active-1 step-active-2 step-active-3')
                   .addClass(`step-active-${stepNum}`);
@@ -404,6 +573,7 @@
                   `.why-choose__steps .step-item[data-step="${stepNum}"]`
                 ).addClass('active');
                 $(`#phone-screen-${stepNum}`).addClass('active');
+                $(`#phone-glow-${stepNum}`).addClass('active');
               }
             },
           });
@@ -438,7 +608,7 @@
     ) {
       gsap.registerPlugin(ScrollTrigger);
 
-      const isDesktop = window.matchMedia('(min-width: 992px)');
+      const isDesktop = window.matchMedia('(min-width: 1200px)');
 
       if (isDesktop.matches) {
         // Initial setup for Visa Card (nested inside perspective)

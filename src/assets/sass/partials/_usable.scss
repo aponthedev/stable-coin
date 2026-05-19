@@ -4,6 +4,7 @@
     background-color: hsl(var(--body-bg));
     position: relative;
     overflow: hidden;
+    isolation: isolate;
 
     // Glowing backgrounds
     &__bg-blur {
@@ -258,6 +259,12 @@
                 object-fit: cover;
             }
         }
+
+        img {
+            height: 16px;
+            width: auto;
+            object-fit: contain;
+        }
         svg {
             color: rgba(255, 255, 255, 0.7);
         }
@@ -463,7 +470,7 @@
             pointer-events: none;
         }
 
-        &__header {
+            &__header {
             .fasset-logo {
                 display: flex;
                 align-items: center;
@@ -473,6 +480,12 @@
                 font-size: 11px;
                 letter-spacing: 1px;
                 svg { color: hsl(var(--base)); }
+
+                img {
+                    height: 18px;
+                    width: auto;
+                    object-fit: contain;
+                }
             }
             .own-badge {
                 font-size: 8px;
@@ -510,6 +523,255 @@
                 color: #ffffff;
                 letter-spacing: 0.5px;
             }
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .usable {
+        padding-top: 86px !important;
+        padding-bottom: 92px !important;
+
+        .row {
+            row-gap: 44px;
+        }
+
+        &__content {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        &__title {
+            max-width: 720px;
+            margin-inline: auto;
+            font-size: 48px;
+            letter-spacing: -1px;
+        }
+
+        &__desc,
+        &__features {
+            margin-inline: auto;
+        }
+
+        &__feature {
+            text-align: left;
+        }
+
+        &__content > .d-flex {
+            justify-content: center;
+            flex-wrap: wrap;
+            row-gap: 16px;
+        }
+
+        &__phone-perspective {
+            width: 100%;
+            padding: 10px 0 34px;
+            overflow: visible;
+        }
+
+        &__phone-container {
+            width: clamp(280px, 38vw, 340px);
+            height: clamp(578px, 78vw, 700px);
+            transform: none;
+        }
+
+        &__card-wrapper {
+            top: 104px;
+            width: min(250px, 74vw);
+            height: auto;
+            aspect-ratio: 250 / 156;
+        }
+
+        .phone-shell {
+            border-radius: 44px;
+        }
+
+        .phone-screen {
+            border-radius: 35px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .usable {
+        padding-top: 68px !important;
+        padding-bottom: 74px !important;
+
+        &__bg-blur {
+            top: 56%;
+            right: auto;
+            left: 50%;
+            width: 130vw;
+            height: 130vw;
+            transform: translateX(-50%);
+        }
+
+        &__title {
+            font-size: 38px;
+            line-height: 1.12;
+        }
+
+        &__desc {
+            font-size: 15px;
+        }
+
+        &__features {
+            margin-top: 32px !important;
+        }
+
+        &__feature {
+            padding: 14px;
+            border-radius: 14px;
+        }
+
+        &__phone-container {
+            width: min(292px, 86vw);
+            height: min(602px, 176vw);
+        }
+
+        &__card-wrapper {
+            top: 96px;
+            width: min(230px, 72vw);
+        }
+
+        .fasset-visa-card {
+            padding: 14px;
+        }
+
+        .fasset-visa-card__number {
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .action-grid {
+            .action-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .action-item span {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .usable {
+        &__content {
+            text-align: left;
+        }
+
+        &__badge {
+            margin-bottom: 18px !important;
+        }
+
+        &__title {
+            font-size: 32px;
+            letter-spacing: 0;
+        }
+
+        &__feature {
+            display: block !important;
+
+            .icon-box {
+                margin-bottom: 12px;
+            }
+        }
+
+        &__content > .d-flex {
+            justify-content: flex-start;
+            align-items: flex-start !important;
+            flex-direction: column;
+            gap: 14px !important;
+            margin-top: 34px !important;
+        }
+
+        &__phone-perspective {
+            padding-top: 0;
+        }
+
+        &__phone-container {
+            width: min(258px, 84vw);
+            height: min(532px, 174vw);
+        }
+
+        &__card-wrapper {
+            top: 88px;
+            width: min(205px, 70vw);
+        }
+
+        .phone-shell {
+            border-width: 7px;
+            border-radius: 38px;
+        }
+
+        .phone-screen {
+            border-radius: 31px;
+        }
+
+        .phone-status-bar {
+            padding-inline: 18px;
+        }
+
+        .balance-block {
+            .balance-amount {
+                font-size: 23px;
+            }
+        }
+
+        .card-placeholder-gap {
+            height: 102px;
+        }
+
+        .app-transactions {
+            .tx-date {
+                display: none;
+            }
+        }
+
+        .screen-navbar {
+            padding-inline: 12px !important;
+
+            .nav-item span {
+                font-size: 8px;
+            }
+        }
+    }
+}
+
+@media (max-width: 424px) {
+    .usable {
+        &__phone-container {
+            width: min(236px, 86vw);
+            height: min(490px, 178vw);
+        }
+
+        &__card-wrapper {
+            top: 80px;
+            width: min(188px, 70vw);
+        }
+
+        .fasset-visa-card__chip {
+            margin-top: 14px !important;
+        }
+
+        .fasset-visa-card__footer {
+            margin-top: 14px !important;
+        }
+
+        .action-grid {
+            padding-inline: 12px !important;
+
+            .action-icon {
+                width: 34px;
+                height: 34px;
+            }
+        }
+
+        .apple-wallet-btn {
+            padding: 9px 12px;
         }
     }
 }

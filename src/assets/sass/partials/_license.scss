@@ -207,6 +207,10 @@
       text-align: center;
       padding: 36px 28px;
       transition: background 0.4s ease;
+
+      @include msm-screen {
+        font-size: 12px;
+      }
     }
 
     &:hover {
@@ -375,6 +379,10 @@
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @include msm-screen {
+        font-size: 18px;
+      }
     }
     .stat-label {
       font-size: 12px;
