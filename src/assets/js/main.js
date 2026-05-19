@@ -230,6 +230,18 @@
   // ========================== Label Required Js End =====================
 
   // ========================= Preloader & ScrollTrigger Js Start =====================
+  // Safe Fallback to hide preloader if window load takes too long
+  setTimeout(function() {
+    if ($('.preloader').is(':visible')) {
+      $('.preloader').fadeOut(500);
+    }
+  }, 2000);
+
+  // Allow clicking preloader to dismiss it
+  $(document).on('click', '.preloader', function() {
+    $(this).fadeOut(500);
+  });
+
   $(window).on('load', function () {
     // 1. Fade out preloader
     $('.preloader').fadeOut(500, function() {
@@ -472,4 +484,255 @@
       }
     });
   // ========================= Preloader & ScrollTrigger Js End =====================
+
+  // ========================= Usable Section GSAP Start =====================
+  $(window).on('load', function () {
+    if ($('.usable').length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const isDesktop = window.matchMedia('(min-width: 992px)');
+
+      if (isDesktop.matches) {
+        // Initial setup for Visa Card (nested inside perspective)
+        gsap.set('.usable__phone-container', {
+          rotationX: 12,
+          rotationY: -10,
+          rotationZ: 2,
+          z: -50
+        });
+
+        gsap.set('.phone-shell', {
+          filter: 'blur(0px)',
+          opacity: 1,
+          scale: 1
+        });
+
+        gsap.set('.usable__card-wrapper', {
+          xPercent: -50,
+          y: 0,
+          z: 20,
+          rotationX: 0,
+          rotationY: 0,
+          rotationZ: 0
+        });
+
+        // GSAP ScrollTrigger timeline with PINNING for high-fidelity control
+        const usableTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.usable',
+            start: 'top top', 
+            end: '+=1000', // 1000px of elegant scroll depth
+            scrub: 1,
+            pin: true,     // Pin the section
+            anticipatePin: 1
+          }
+        });
+
+        // 1. Straighten the phone and bring it closer
+        usableTimeline.to('.usable__phone-container', {
+          rotationX: 0,
+          rotationY: 0,
+          rotationZ: 0,
+          z: 50,
+          duration: 1,
+          ease: 'power2.out'
+        })
+        // 2. Zoom the Credit Card slightly in place and simultaneously blur & scale down the phone shell!
+        .to('.usable__card-wrapper', {
+          y: -12,      // Very subtle upward shift
+          scale: 1.15, // Zoom/scale up the card
+          z: 140,      // Pop out in depth
+          rotationX: -6, 
+          rotationY: 10,
+          rotationZ: -2,
+          duration: 1.5,
+          ease: 'power2.out'
+        }, '-=0.5')
+        .to('.phone-shell', {
+          filter: 'blur(6px)',
+          opacity: 0.45,
+          scale: 0.94,
+          duration: 1.5,
+          ease: 'power2.out'
+        }, '-=1.5');
+
+      } else {
+        // Mobile fallback
+        gsap.set('.usable__phone-container', { rotationX: 0, rotationY: 0, rotationZ: 0 });
+        gsap.set('.usable__card-wrapper', { xPercent: -50, y: -20, z: 20 });
+      }
+    }
+  });
+  // ========================= Usable Section GSAP End =====================
+
+  // ========================= Download Area GSAP Start =====================
+  $(window).on('load', function () {
+    if ($('.download-area').length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const downloadTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.download-area',
+          start: 'top 68%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+
+      gsap.set('.download-area__topbar, .download-area__eyebrow, .download-area__title, .download-area__text, .download-area__stats, .download-area__actions', {
+        y: 36,
+        opacity: 0
+      });
+
+      gsap.set('.download-area__phone--main', {
+        x: -90,
+        y: 95,
+        rotation: -17,
+        opacity: 0
+      });
+
+      gsap.set('.download-area__phone--side', {
+        x: 95,
+        y: 120,
+        rotation: 18,
+        opacity: 0
+      });
+
+      gsap.set('.download-area__halo, .download-area__glass', {
+        scale: 0.82,
+        opacity: 0
+      });
+
+      gsap.set('.download-area__shine', {
+        xPercent: -40,
+        opacity: 0
+      });
+
+      downloadTimeline
+        .to('.download-area__shine', {
+          xPercent: 130,
+          opacity: 1,
+          duration: 1.2,
+          ease: 'power2.out'
+        })
+        .to('.download-area__topbar', {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: 'power3.out'
+        }, '-=1')
+        .to('.download-area__eyebrow, .download-area__title, .download-area__text, .download-area__stats, .download-area__actions', {
+          y: 0,
+          opacity: 1,
+          duration: 0.86,
+          stagger: 0.075,
+          ease: 'power3.out'
+        }, '-=0.45')
+        .to('.download-area__halo', {
+          scale: 1,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power2.out'
+        }, '-=0.58')
+        .to('.download-area__phone--main', {
+          x: 0,
+          y: 0,
+          rotation: -8,
+          opacity: 1,
+          duration: 1.05,
+          ease: 'back.out(1.2)'
+        }, '-=0.55')
+        .to('.download-area__phone--side', {
+          x: 0,
+          y: 64,
+          rotation: 10,
+          opacity: 0.96,
+          duration: 1.05,
+          ease: 'back.out(1.2)'
+        }, '-=0.85')
+        .to('.download-area__glass', {
+          scale: 1,
+          opacity: 1,
+          duration: 0.65,
+          stagger: 0.12,
+          ease: 'back.out(1.4)'
+        }, '-=0.45');
+
+      gsap.to('.download-area__phone--main', {
+        y: -14,
+        rotation: -6,
+        duration: 4.4,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: 1.2
+      });
+
+      gsap.to('.download-area__phone--side', {
+        y: 50,
+        rotation: 12,
+        duration: 5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: 1.4
+      });
+
+      gsap.to('.download-area__glass', {
+        y: -10,
+        duration: 3.2,
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.28,
+        ease: 'sine.inOut',
+        delay: 1.5
+      });
+
+      $('.download-area__panel').on('mousemove', function (e) {
+        const rect = this.getBoundingClientRect();
+        const xPos = ((e.clientX - rect.left) / rect.width - 0.5) * 22;
+        const yPos = ((e.clientY - rect.top) / rect.height - 0.5) * 18;
+
+        gsap.to('.download-area__phone--main', {
+          x: xPos * -0.8,
+          y: yPos * -0.2,
+          rotationY: xPos * 0.32,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+
+        gsap.to('.download-area__phone--side', {
+          x: xPos * 0.8,
+          y: 64 + yPos * 0.18,
+          rotationY: xPos * -0.32,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+
+        gsap.to('.download-area__glass', {
+          x: xPos * 0.46,
+          y: yPos * 0.36,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+
+        gsap.to('.download-area__halo', {
+          x: xPos * 0.18,
+          y: yPos * 0.12,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      });
+
+      $('.download-area__panel').on('mouseleave', function () {
+        gsap.to('.download-area__phone--main, .download-area__phone--side, .download-area__glass, .download-area__halo', {
+          x: 0,
+          rotationY: 0,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      });
+    }
+  });
+  // ========================= Download Area GSAP End =====================
 })(jQuery);

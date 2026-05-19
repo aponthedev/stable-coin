@@ -1,0 +1,547 @@
+// c:\Users\Ashraf\Desktop\stable-coin\src\assets\sass\partials\_usable.scss
+
+.usable {
+    background-color: hsl(var(--body-bg));
+    position: relative;
+    overflow: hidden;
+
+    // Glowing backgrounds
+    &__bg-blur {
+        position: absolute;
+        top: 50%;
+        right: -10%;
+        width: 60vw;
+        height: 60vw;
+        background: radial-gradient(circle, rgba(28, 209, 12, 0.07) 0%, transparent 65%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    &__bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: 0;
+        mask-image: radial-gradient(circle at right center, black 40%, transparent 80%);
+        -webkit-mask-image: radial-gradient(circle at right center, black 40%, transparent 80%);
+        pointer-events: none;
+    }
+
+    // Left Side Typography
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 16px;
+        background: rgba(28, 209, 12, 0.04);
+        border: 1px solid rgba(28, 209, 12, 0.15);
+        border-radius: 50px;
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: hsl(var(--base));
+            box-shadow: 0 0 10px hsl(var(--base));
+            animation: pulseDot 1.5s infinite;
+        }
+        .text {
+            color: hsl(var(--base));
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+    }
+
+    &__title {
+        font-family: var(--heading-font);
+        font-size: 56px;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -2px;
+        color: hsl(var(--heading-color));
+
+        .text-gradient {
+            background: linear-gradient(135deg, hsl(var(--base)), hsl(var(--base-two)));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @media (max-width: 991px) { font-size: 42px; }
+    }
+
+    &__desc {
+        font-size: 17px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.55);
+        max-width: 550px;
+    }
+
+    // Feature Bullet Items
+    &__features {
+        max-width: 550px;
+    }
+
+    &__feature {
+        background: rgba(255, 255, 255, 0.01);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        padding: 16px 20px;
+        border-radius: 16px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(28, 209, 12, 0.15);
+            transform: translateX(6px);
+            
+            .icon-box {
+                background: rgba(28, 209, 12, 0.15);
+                border-color: rgba(28, 209, 12, 0.4);
+                color: hsl(var(--base));
+                box-shadow: 0 0 15px rgba(28, 209, 12, 0.2);
+            }
+        }
+
+        .icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        h5 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 4px 0;
+        }
+
+        p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.45);
+            margin: 0;
+        }
+    }
+
+    .learn-more-link {
+        transition: color 0.3s ease;
+        i {
+            transition: transform 0.3s ease;
+        }
+        &:hover {
+            color: hsl(var(--base-two)) !important;
+            i {
+                transform: translateX(4px);
+            }
+        }
+    }
+
+    // ─── Smartphone 3D Setup ─────────────────────────────────────
+    &__phone-perspective {
+        perspective: 1500px;
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__phone-container {
+        position: relative;
+        width: 310px;
+        height: 640px;
+        transform-style: preserve-3d;
+        transform: rotateX(12deg) rotateY(-10deg) rotateZ(2deg);
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -35px;
+            left: 10%;
+            width: 80%;
+            height: 25px;
+            background: rgba(0, 0, 0, 0.75);
+            filter: blur(25px);
+            border-radius: 50%;
+            transform: rotateX(90deg);
+            pointer-events: none;
+            z-index: -1;
+        }
+    }
+
+    // ─── iPhone Shell Styling ────────────────────────────────────
+    .phone-shell {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #191c22;
+        border: 10px solid #111317;
+        border-radius: 44px;
+        box-shadow: 
+            0 30px 70px rgba(0, 0, 0, 0.85),
+            inset 0 0 4px rgba(255, 255, 255, 0.15);
+        transform-style: preserve-3d;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .phone-screen {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #080a0d;
+        border-radius: 35px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.015);
+    }
+
+    .phone-dynamic-island {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 88px;
+        height: 22px;
+        background: #000000;
+        border-radius: 11px;
+        z-index: 99;
+        box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
+    }
+
+    .phone-status-bar {
+        height: 36px;
+        padding: 0 24px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #ffffff;
+        z-index: 10;
+        margin-top: 4px;
+    }
+
+    .app-header {
+        .app-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 1px;
+            svg {
+                color: hsl(var(--base));
+            }
+        }
+        .avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        svg {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .balance-block {
+        .balance-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.45);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .balance-amount {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 2px;
+            span {
+                font-size: 14px;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+
+    .card-placeholder-gap {
+        height: 125px;
+        margin-top: 15px;
+    }
+
+    .action-grid {
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            span {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.6);
+                font-weight: 500;
+            }
+            &:hover {
+                span { color: #ffffff; }
+                .action-icon {
+                    background: rgba(28, 209, 12, 0.22);
+                    border-color: rgba(28, 209, 12, 0.45);
+                    color: #ffffff;
+                    transform: translateY(-2px);
+                }
+            }
+        }
+        .action-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            &--plus {
+                background: rgba(28, 209, 12, 0.12);
+                border-color: rgba(28, 209, 12, 0.25);
+                color: hsl(var(--base));
+            }
+        }
+    }
+
+    .apple-wallet-btn {
+        background: #11141a;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 10px 16px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            background: #000000;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+    }
+
+    .app-transactions {
+        .tx-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+        .tx-date {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .tx-item {
+            .tx-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.04);
+                color: rgba(255, 255, 255, 0.6);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+            .tx-details {
+                h6 {
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    margin: 0 0 2px 0;
+                }
+                span {
+                    font-size: 9px;
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+            .tx-amount {
+                font-size: 11px;
+                font-weight: 700;
+                &.plus { color: hsl(var(--base)); }
+                &.minus { color: rgba(255, 255, 255, 0.8); }
+            }
+        }
+    }
+
+    .screen-navbar {
+        height: 52px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(15, 18, 23, 0.8);
+        backdrop-filter: blur(10px);
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.4);
+            span { font-size: 9px; }
+            &.active { color: hsl(var(--base)); }
+        }
+    }
+
+    .home-indicator {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 110px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 2px;
+    }
+
+    // ─── Floating Visa Card ──────────────────────────────────────
+    &__card-wrapper {
+        position: absolute;
+        top: 115px; 
+        left: 50%;
+        transform: translateX(-50%) translateZ(20px);
+        width: 250px;
+        height: 156px;
+        z-index: 20;
+        pointer-events: none;
+        transform-origin: center center;
+    }
+
+    .fasset-visa-card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 10% 10%, #151922 0%, #080a0d 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 
+            0 15px 35px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(28, 209, 12, 0.15),
+            inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        
+        // Dynamic continuous bobbing animation on the inner card container
+        animation: bobCard 4.5s ease-in-out infinite;
+
+        &__glow {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 20% 20%, rgba(28, 209, 12, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        &__header {
+            .fasset-logo {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: #ffffff;
+                font-weight: 800;
+                font-size: 11px;
+                letter-spacing: 1px;
+                svg { color: hsl(var(--base)); }
+            }
+            .own-badge {
+                font-size: 8px;
+                font-weight: 700;
+                color: hsl(var(--base-two));
+                border: 1px solid rgba(206, 255, 26, 0.35);
+                padding: 1px 6px;
+                border-radius: 4px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        &__number {
+            font-family: var(--heading-font);
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        &__footer {
+            .label {
+                display: block;
+                font-size: 7px;
+                color: rgba(255, 255, 255, 0.4);
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+            .value {
+                display: block;
+                font-size: 9px;
+                font-weight: 700;
+                color: #ffffff;
+                letter-spacing: 0.5px;
+            }
+        }
+    }
+}
+
+// ─── Keyframe Animations ─────────────────────────────────────
+@keyframes pulseDot {
+    0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(28, 209, 12, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(28, 209, 12, 0);
+    }
+    100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(28, 209, 12, 0);
+    }
+}
+
+// continuous soft metallic hover reflection/floating for Fasset credit card
+@keyframes bobCard {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(28, 209, 12, 0.15);
+    }
+    50% {
+        transform: translateY(-6px) rotate(0.8deg);
+        box-shadow: 0 22px 45px rgba(0, 0, 0, 0.5), 0 0 12px 1px rgba(28, 209, 12, 0.3);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(28, 209, 12, 0.15);
+    }
+}
