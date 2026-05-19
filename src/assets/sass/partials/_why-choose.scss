@@ -1,0 +1,1294 @@
+/* ======================  Why Choose Us Section Start  ======================*/
+.why-choose {
+  background-color: hsl(var(--body-bg));
+  position: relative;
+  overflow: visible;
+  z-index: 5; // Elevated z-index to sit cleanly on top of transparent sections
+
+  @media (min-width: 992px) {
+    height: 100vh;
+    min-height: 750px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  // Sticky columns parent wrapper
+  .sticky-column {
+    position: relative;
+    z-index: 10;
+    
+    @media (min-width: 992px) {
+      position: sticky;
+      top: 0;
+      align-self: center;
+    }
+  }
+
+  // Right column scrolling blocks
+  .scrolling-column {
+    position: relative;
+    z-index: 10;
+    
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+    
+    @media (min-width: 992px) {
+      height: 480px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // Pinned Content Deck - absolute cards layout for desktop
+  &__content-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .content-block {
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+
+      @media (min-width: 992px) {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(24px) scale(0.97);
+        filter: blur(2px);
+      }
+
+      // Active state
+      &.active {
+        @media (min-width: 992px) {
+          opacity: 1;
+          pointer-events: all;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+
+        .why-choose__title {
+          // Premium linear text gradient
+          background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.85) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .why-choose__list li {
+          border-color: rgba(255, 255, 255, 0.12);
+          background-color: rgba(255, 255, 255, 0.04);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+          filter: blur(0);
+          opacity: 1;
+          transform: scale(1);
+
+          // Elite staggered cascade animation delays for maximum luxury
+          &:nth-child(1) { transition-delay: 0.05s; }
+          &:nth-child(2) { transition-delay: 0.12s; }
+          &:nth-child(3) { transition-delay: 0.19s; }
+          &:nth-child(4) { transition-delay: 0.26s; }
+
+          // Activate left neon green border accent
+          &::before {
+            transform: scaleY(1);
+            transform-origin: top;
+            transition-delay: inherit; // Perfectly sync accent slide with stagger
+          }
+
+          &:hover {
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+            transition-delay: 0s !important; // Zero delay on hover response!
+          }
+
+          .list-icon {
+            color: hsl(var(--black));
+            background-color: hsl(var(--base)); // Glowing theme brand green
+            box-shadow: 0 0 15px hsl(var(--base) / 0.5);
+          }
+
+          p {
+            color: rgba(255, 255, 255, 0.95);
+          }
+        }
+
+        .why-choose__partners {
+          opacity: 1;
+
+          .partners-title {
+            color: rgba(255, 255, 255, 0.7);
+          }
+
+          // Brands reveal full premium colors on active state!
+          .partner-box {
+            color: #ffffff;
+            
+            &--fiverr {
+              filter: none;
+              background-color: #1dbf73;
+              border-color: #1dbf73;
+            }
+            &--upwork {
+              filter: none;
+              background-color: #ffffff;
+              border-color: #ffffff;
+              color: #14a800;
+            }
+            &--wise {
+              filter: none;
+              background-color: #9fe870;
+              border-color: #9fe870;
+              color: #163300;
+            }
+            &--payoneer {
+              filter: none;
+              background-color: #ffffff;
+              border-color: #ffffff;
+              .circle-gradient {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      // Inactive states (Extremely clean, muted colors, focus-masked with subtle blur)
+      .why-choose__title {
+        font-size: 40px;
+        letter-spacing: -0.02em;
+        color: rgba(255, 255, 255, 0.45); 
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+        @media (max-width: 991px) {
+          font-size: 32px;
+        }
+      }
+
+      .why-choose__list li {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05); // Clean subtle border
+        background-color: rgba(255, 255, 255, 0.02); // Flat professional tech card look
+        border-radius: 16px;
+        padding: 18px 24px 18px 24px;
+        display: flex;
+        align-items: flex-start; // Icons align perfectly at top-left of text for multi-line professional layout
+        gap: 16px;
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+        @media (min-width: 992px) {
+          filter: blur(1px); // Focus masking for inactive items
+          opacity: 0.35;
+          transform: scale(0.97);
+        }
+
+        // Hidden left accent line indicator (grows vertically on active)
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: hsl(var(--base));
+          transform: scaleY(0);
+          transform-origin: bottom;
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .list-icon {
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          margin-top: 2px; // Offsets icon to center with first line of text
+          color: rgba(255, 255, 255, 0.7);
+          background-color: rgba(255, 255, 255, 0.06);
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        p {
+          color: rgba(255, 255, 255, 0.65);
+          font-size: 14px;
+          line-height: 1.6;
+          transition: all 0.5s ease;
+        }
+      }
+
+      // Unified monochrome partner boxes (lights up on active/hover for maximum Apple-like professionalism)
+      .why-choose__partners {
+        opacity: 0.6;
+        transition: opacity 0.5s ease;
+
+        .partners-title {
+          color: rgba(255, 255, 255, 0.45);
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .partner-box {
+          height: 46px;
+          padding: 0 18px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+          font-weight: 600;
+          background-color: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          color: rgba(255, 255, 255, 0.6);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+          .circle-gradient {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4800 0%, #ffaa00 100%);
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(255, 72, 0, 0.5);
+            transition: all 0.4s ease;
+          }
+
+          &:hover {
+            transform: translateY(-2px);
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+            .circle-gradient {
+              transform: scale(1.1);
+              box-shadow: 0 0 15px rgba(255, 72, 0, 0.8);
+            }
+          }
+
+          &--fiverr {
+            filter: grayscale(1) brightness(0.8);
+          }
+          &--upwork {
+            filter: grayscale(1) brightness(0.8);
+          }
+          &--wise {
+            filter: grayscale(1) brightness(0.8);
+          }
+          &--payoneer {
+            filter: grayscale(1) brightness(0.8);
+            .circle-gradient {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Left Column Steps Timeline & Navigation (Ultra-Premium Dynamic Style)
+  &__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    padding: 0 0 0 30px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+
+    // Vertical Timeline Connecting Track (Background rail)
+    &::before {
+      content: '';
+      position: absolute;
+      left: 19px; // Center it perfectly under the numbers
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    // Dynamic glowing timeline progress bar (scrubbed dynamically by GSAP!)
+    .why-choose__progress-bar {
+      position: absolute;
+      left: 19px;
+      top: 10px;
+      bottom: 10px; // Constrains the maximum progress bar height
+      width: 2px;
+      background: linear-gradient(180deg, #1ecb81 0%, #0abf70 100%); // Premium gradient
+      box-shadow: 0 0 15px rgba(30, 203, 129, 0.8), 0 0 30px rgba(30, 203, 129, 0.4);
+      border-radius: 10px;
+      z-index: 2;
+      height: 0%; // Dynamic height managed by GSAP
+      transition: box-shadow 0.3s ease;
+    }
+
+    .step-item {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      opacity: 0.4;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+      .step-number {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #0d0d0d;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 12px;
+        z-index: 2;
+        margin-left: -10px; // Pull left to align center over the 2px progress bar rail
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        // Rotating aura ring (hidden by default)
+        &::before {
+          content: '';
+          position: absolute;
+          inset: -4px;
+          border-radius: 50%;
+          background: conic-gradient(from 0deg, transparent 0%, transparent 60%, #1ecb81 100%);
+          z-index: -1;
+          opacity: 0;
+          animation: rotateAura 2s linear infinite;
+          transition: opacity 0.5s ease;
+        }
+
+        // Inner glowing core
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 2px;
+          border-radius: 50%;
+          background: #111;
+          z-index: -1;
+          transition: background 0.5s ease;
+        }
+      }
+
+      .step-text {
+        font-family: var(--heading-font);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        position: relative;
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        // Animated underline
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          height: 2px;
+          width: 0;
+          background: #1ecb81;
+          transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          border-radius: 2px;
+          box-shadow: 0 0 8px rgba(30, 203, 129, 0.6);
+        }
+      }
+
+      // Active timeline state
+      &.active {
+        opacity: 1;
+        transform: translateX(8px);
+        
+        .step-number {
+          border-color: transparent;
+          color: #ffffff;
+          box-shadow: 0 0 20px rgba(30, 203, 129, 0.2);
+          
+          &::before {
+            opacity: 1; // Show rotating aura
+          }
+          
+          &::after {
+            background: radial-gradient(circle at center, rgba(30, 203, 129, 0.3) 0%, #111 80%);
+          }
+        }
+        
+        .step-text {
+          color: #ffffff;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+          
+          &::after {
+            width: 100%; // Fill underline
+          }
+        }
+      }
+
+      &:hover:not(.active) {
+        opacity: 0.8;
+        transform: translateX(4px);
+        
+        .step-number {
+          border-color: rgba(255, 255, 255, 0.3);
+          color: #ffffff;
+        }
+        .step-text {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
+  }
+
+  // Premium Scroll Guide Indicator style
+  .scroll-guide-indicator {
+    opacity: 0.7;
+    transition: all 0.5s ease;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    padding: 10px 16px;
+    width: max-content;
+    backdrop-filter: blur(10px);
+    
+    &:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(30, 203, 129, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .mouse-icon {
+      width: 18px;
+      height: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+
+      .wheel {
+        width: 4px;
+        height: 6px;
+        background-color: #1ecb81;
+        border-radius: 2px;
+        position: absolute;
+        top: 6px;
+        animation: premiumScrollWheel 2s infinite cubic-bezier(0.65, 0, 0.35, 1);
+        box-shadow: 0 0 8px #1ecb81;
+      }
+    }
+
+    .guide-direction {
+      .direction-down, .direction-up {
+        display: none;
+        align-items: center;
+        gap: 6px;
+        
+        i {
+          font-size: 14px;
+          animation: arrowBounce 2s infinite ease-in-out;
+        }
+
+        &.active {
+          display: flex;
+          animation: fadeIn 0.4s ease forwards;
+        }
+      }
+    }
+  }
+
+  @keyframes rotateAura {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes premiumScrollWheel {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    40% { transform: translateY(8px) scale(0.8); opacity: 1; }
+    80% { transform: translateY(12px) scale(0.5); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 0; }
+  }
+
+  @keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  // Right Column Content Layout
+  &__content {
+    width: 100%;
+
+    .why-choose__list {
+      list-style: none;
+    }
+  }
+
+  // Middle Column: Premium Glowing Smartphone Mockup
+  .phone-glow-container {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+
+    .phone-glow {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      filter: blur(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 50%;
+
+      &.active {
+        opacity: 1;
+      }
+
+      // Silver-green glow for USD checking dashboard
+      &.glow-usd {
+        background: radial-gradient(circle, rgba(0, 230, 118, 0.09) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+      }
+
+      // Sleek deep indigo/purple aura for the credit card screen
+      &.glow-card {
+        background: radial-gradient(circle, rgba(103, 58, 183, 0.14) 0%, rgba(63, 81, 181, 0.04) 45%, transparent 70%);
+      }
+
+      // High-contrast neon green for the wealth APY vaults
+      &.glow-vault {
+        background: radial-gradient(circle, hsl(var(--base) / 0.14) 0%, transparent 68%);
+      }
+    }
+  }
+
+  .phone-mockup {
+    position: relative;
+    width: 310px;
+    height: 620px;
+    z-index: 1;
+    perspective: 1000px; // Enables ultra-premium 3D perspective tilts
+
+    @media (max-width: 1199px) {
+      width: 280px;
+      height: 560px;
+    }
+
+    .phone-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 48px;
+      background-color: #000000;
+      border: 9px solid #1a1a1a;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 
+                  inset 0 0 0 1.5px rgba(255, 255, 255, 0.12), // Inner silver edge highlight
+                  0 0 0 1px rgba(255, 255, 255, 0.04), // Outer metal sleek ring
+                  0 0 20px rgba(30, 203, 129, 0.05);
+      position: relative;
+      overflow: hidden;
+      padding: 10px;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+      // Step-Active 1 (USD Account) behavior
+      &.step-active-1 {
+        border-color: #161616;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 
+                    inset 0 0 0 1.5px rgba(255, 255, 255, 0.12),
+                    0 0 0 1px rgba(255, 255, 255, 0.04),
+                    0 0 25px rgba(30, 203, 129, 0.12); // Neon Green aura
+        
+        .phone-dynamic-island {
+          width: 148px;
+          .dynamic-status-dot {
+            background-color: #1ecb81;
+            box-shadow: 0 0 10px rgba(30, 203, 129, 0.8);
+            animation: dynamicPulse 1.5s infinite ease-in-out;
+          }
+          .dynamic-label--usd {
+            opacity: 1;
+            max-width: 110px;
+            margin-left: 4px;
+          }
+        }
+      }
+
+      // Step-Active 2 (Card) behavior
+      &.step-active-2 {
+        border-color: #1a1a24;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 
+                    inset 0 0 0 1.5px rgba(255, 255, 255, 0.12),
+                    0 0 0 1px rgba(255, 255, 255, 0.04),
+                    0 0 25px rgba(0, 122, 255, 0.15); // Indigo aura
+        
+        .phone-dynamic-island {
+          width: 130px;
+          .dynamic-status-dot {
+            background-color: #007aff;
+            box-shadow: 0 0 10px rgba(0, 122, 255, 0.8);
+            animation: dynamicPulse 1.5s infinite ease-in-out;
+          }
+          .dynamic-label--card {
+            opacity: 1;
+            max-width: 110px;
+            margin-left: 4px;
+          }
+        }
+      }
+
+      // Step-Active 3 (Invest) behavior
+      &.step-active-3 {
+        border-color: #24201a;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 
+                    inset 0 0 0 1.5px rgba(255, 255, 255, 0.12),
+                    0 0 0 1px rgba(255, 255, 255, 0.04),
+                    0 0 25px rgba(241, 196, 15, 0.12); // Gold aura
+        
+        .phone-dynamic-island {
+          width: 154px;
+          .dynamic-status-dot {
+            background-color: #f1c40f;
+            box-shadow: 0 0 10px rgba(241, 196, 15, 0.8);
+            animation: dynamicPulse 1.5s infinite ease-in-out;
+          }
+          .dynamic-label--vault {
+            opacity: 1;
+            max-width: 110px;
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+
+    .phone-speaker {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 4px;
+      background-color: #2c2c2c;
+      border-radius: 2px;
+      z-index: 5;
+    }
+
+    .phone-dynamic-island {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 24px;
+      background-color: #000000;
+      border-radius: 12px;
+      z-index: 4;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+
+      .dynamic-status-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #ff3b30; // Red by default (inactive)
+        box-shadow: 0 0 8px rgba(255, 59, 48, 0.4);
+        transition: all 0.4s ease;
+      }
+
+      .dynamic-label {
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.95);
+        opacity: 0;
+        max-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background-color: #0c0c0c;
+      border-radius: 38px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      color: #ffffff;
+      font-family: var(--body-font);
+    }
+
+    // Status bar
+    .phone-status-bar {
+      height: 36px;
+      padding: 15px 20px 0;
+      font-size: 11px;
+      font-weight: 600;
+      color: #ffffff;
+      z-index: 3;
+
+      .phone-icons {
+        font-size: 12px;
+      }
+    }
+
+    // Multi-screen wrapper toggling
+    .phone-screen-wrapper {
+      position: absolute;
+      inset: 36px 0 54px 0;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px) scale(0.96);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); // iOS-like spring transitions
+      z-index: 1;
+
+      &.active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0) scale(1);
+        z-index: 2;
+      }
+    }
+
+    // App Header
+    .phone-header {
+      .phone-back, .phone-cog {
+        font-size: 18px;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      .phone-header-title {
+        font-size: 13px;
+        font-weight: 500;
+        color: #a0a0a0;
+      }
+    }
+
+    /* SCREEN 1: Account checking */
+    .phone-balance-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+
+      .balance-label {
+        font-size: 11px;
+        color: #888888;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        i {
+          font-size: 12px;
+        }
+      }
+
+      .balance-amount {
+        font-size: 26px;
+        font-weight: 700;
+        font-family: var(--heading-font);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .balance-eye {
+          font-size: 16px;
+          color: #555555;
+          cursor: pointer;
+        }
+      }
+
+      .balance-iban-row {
+        background-color: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 12px;
+
+        .balance-flag {
+          width: 20px;
+          height: 14px;
+          border-radius: 2px;
+          object-fit: cover;
+        }
+
+        .balance-iban {
+          font-size: 9px;
+          color: #a0a0a0;
+          font-family: monospace;
+        }
+
+        i {
+          font-size: 12px;
+          color: #555555;
+        }
+      }
+    }
+
+    .phone-actions {
+      .action-btn-wrapper {
+        text-align: center;
+      }
+
+      .action-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
+        }
+
+        &--add {
+          background-color: hsl(var(--base));
+          color: hsl(var(--black));
+          border: none;
+          box-shadow: 0 4px 15px hsl(var(--base) / 0.3);
+
+          &:hover {
+            background-color: hsl(var(--base) / 0.9);
+          }
+        }
+      }
+
+      .action-label {
+        font-size: 11px;
+        color: #888888;
+        margin-top: 6px;
+        display: block;
+      }
+    }
+
+    .phone-transactions {
+      flex: 1;
+      overflow-y: auto;
+
+      .transactions-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      .transactions-date {
+        font-size: 10px;
+        color: #555555;
+      }
+
+      .transaction-item {
+        background-color: rgba(255, 255, 255, 0.02);
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+
+        .transaction-icon {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.05);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          color: #a0a0a0;
+        }
+
+        .transaction-name {
+          font-size: 11px;
+          font-weight: 500;
+          color: #ffffff;
+        }
+
+        .transaction-time {
+          font-size: 9px;
+          color: #555555;
+        }
+
+        .transaction-amount {
+          font-size: 11px;
+          font-weight: 600;
+
+          &.negative {
+            color: #ffffff;
+          }
+
+          &.positive {
+            color: hsl(var(--base));
+          }
+        }
+
+        .transaction-points {
+          font-size: 9px;
+          color: #f1c40f;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 2px;
+          i {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    /* SCREEN 2: Premium Cards */
+    .phone-debit-card {
+      min-height: 140px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1f1f1f 0%, #0d0d0d 50%, #1c1c1c 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+      // Moving metallic shine sweep overlay
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 250%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.03) 45%,
+          rgba(255, 255, 255, 0.12) 50%,
+          rgba(255, 255, 255, 0.03) 55%,
+          transparent 70%
+        );
+        transform: rotate(25deg);
+        animation: metallicShine 6s infinite linear;
+        pointer-events: none;
+      }
+
+      .card-brand-name {
+        font-family: var(--heading-font);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: hsl(var(--base));
+      }
+
+      .contactless-icon {
+        font-size: 18px;
+        color: rgba(255,255,255,0.4);
+      }
+
+      .card-number {
+        font-family: monospace;
+        font-size: 16px;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+
+      .card-holder-label, .card-expiry-label {
+        font-size: 7px;
+        color: #555555;
+        letter-spacing: 0.5px;
+      }
+
+      .card-holder-name, .card-expiry {
+        font-size: 10px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+    }
+
+    .phone-card-settings {
+      background-color: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 16px;
+
+      .settings-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #888888;
+      }
+
+      .control-item {
+        background-color: rgba(255,255,255,0.02);
+        padding: 10px 12px;
+        border-radius: 10px;
+
+        .control-icon {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: rgba(255,255,255,0.05);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          color: #ffffff;
+        }
+
+        .control-name {
+          font-size: 11px;
+          font-weight: 500;
+        }
+
+        .form-switch .form-check-input {
+          width: 28px;
+          height: 16px;
+          cursor: pointer;
+          background-color: rgba(255,255,255,0.1);
+          border-color: transparent;
+
+          &:checked {
+            background-color: hsl(var(--base));
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e");
+          }
+        }
+      }
+    }
+
+    /* SCREEN 3: Wealth & Vault APY Growth */
+    .phone-yield-card {
+      background: linear-gradient(135deg, rgba(0, 230, 118, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
+      border: 1px solid rgba(0, 230, 118, 0.15);
+      border-radius: 20px;
+
+      .yield-label {
+        font-size: 10px;
+        color: #888888;
+      }
+
+      .yield-amount {
+        font-family: var(--heading-font);
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .yield-rate {
+        background-color: rgba(0, 230, 118, 0.15);
+        color: #00e676;
+        font-size: 9px;
+        font-weight: 600;
+        border-radius: 20px;
+      }
+    }
+
+    .phone-chart-box {
+      background-color: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 20px;
+
+      .chart-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: #888888;
+      }
+
+      .chart-timeframe {
+        font-size: 9px;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #ffffff;
+      }
+
+      .mock-chart-container {
+        height: 60px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 10px;
+
+        // Premium CSS line chart using linear gradient filled wave
+        .wave-line {
+          position: absolute;
+          left: 0;
+          bottom: 10px;
+          width: 100%;
+          height: 100%;
+          border-bottom: 2px solid hsl(var(--base));
+          box-shadow: 0 4px 15px hsl(var(--base) / 0.4);
+          /* Flat at the bottom initially, grows dynamically when parent is active */
+          clip-path: polygon(0% 100%, 20% 100%, 40% 100%, 60% 100%, 80% 100%, 100% 100%);
+          transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .wave-gradient-fill {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(180deg, hsl(var(--base) / 0.15) 0%, transparent 100%);
+          /* Flat at the bottom initially, grows dynamically when parent is active */
+          clip-path: polygon(0% 100%, 20% 100%, 40% 100%, 60% 100%, 80% 100%, 100% 100%, 100% 100%, 0% 100%);
+          transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+      }
+    }
+
+    // Dynamic wave animation when Screen 3 becomes active!
+    .phone-screen-wrapper.active {
+      .mock-chart-container {
+        .wave-line {
+          clip-path: polygon(0% 80%, 20% 75%, 40% 60%, 60% 45%, 80% 30%, 100% 10%) !important;
+        }
+
+        .wave-gradient-fill {
+          clip-path: polygon(0% 80%, 20% 75%, 40% 60%, 60% 45%, 80% 30%, 100% 10%, 100% 100%, 0% 100%) !important;
+        }
+      }
+    }
+
+    // Bottom Navigation Bar
+    .phone-nav {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 10px 10px 15px;
+      background-color: rgba(12, 12, 12, 0.95);
+      backdrop-filter: blur(10px);
+
+      .nav-item {
+        text-align: center;
+        color: #555555;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        i {
+          font-size: 18px;
+          display: block;
+        }
+
+        span {
+          font-size: 8px;
+          display: block;
+          margin-top: 2px;
+        }
+
+        &.active {
+          color: hsl(var(--base));
+        }
+
+        &:hover:not(.active) {
+          color: #888888;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Responsive Reset to avoid issues
+@media (max-width: 991px) {
+  .why-choose {
+    padding: 60px 0;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  .why-choose__content-deck {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 50px;
+  }
+
+  .why-choose__content-deck .content-block {
+    position: relative !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    pointer-events: all !important;
+    min-height: auto !important;
+
+    .why-choose__list li {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+    }
+  }
+
+  .why-choose__steps {
+    margin-bottom: 40px;
+  }
+
+  .phone-mockup {
+    margin: 40px auto;
+  }
+}
+
+// Brand Rotate Glow Keyframes
+@keyframes rotateGlow {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Shimmering Metallic reflection for premium credit card mockup
+@keyframes metallicShine {
+  0% {
+    left: -150%;
+  }
+  50% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+// Breathing neon pulse for active step badges
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(30, 203, 129, 0.4), inset 0 0 5px rgba(30, 203, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(30, 203, 129, 0.7), inset 0 0 10px rgba(30, 203, 129, 0.4);
+  }
+}
+
+// Dynamic island pulsing status dot
+@keyframes dynamicPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+/* ======================  Why Choose Us Section End  ======================*/

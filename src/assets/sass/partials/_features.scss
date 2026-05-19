@@ -1,0 +1,113 @@
+/* ======================  Features Section Start  ======================*/
+@keyframes borderRotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.features {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 400px;
+    background: radial-gradient(
+      ellipse at top,
+      hsl(var(--base) / 0.1) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__card {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 24px;
+    padding-right: 0;
+    border-radius: 24px;
+    transition: 0.3s linear;
+    border: 1px solid hsl(var(--border-color) / 0.15);
+    height: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0%,
+        transparent 75%,
+        hsl(var(--base)) 100%
+      );
+      transform: translate(-50%, -50%) rotate(0deg);
+      animation: borderRotate 5s linear infinite;
+      z-index: -2;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      background:
+        radial-gradient(
+          60% 60% at 50% 0%,
+          hsl(var(--base) / 0.08) 0%,
+          transparent 80%
+        ),
+        linear-gradient(180deg, #181818 0%, #111111 100%);
+      border-radius: 23px;
+      z-index: -1;
+      transition: background 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px hsl(var(--base) / 0.15);
+
+      &::after {
+        background:
+          radial-gradient(
+            60% 60% at 50% 0%,
+            hsl(var(--base) / 0.15) 0%,
+            transparent 80%
+          ),
+          linear-gradient(180deg, #1c1c1c 0%, #111111 100%);
+      }
+    }
+  }
+
+  &__content,
+  &__title {
+    color: hsl(var(--base));
+  }
+  &__image {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__desc {
+    margin-bottom: 24px;
+  }
+}
+
+.features__two {
+  position: absolute;
+  top: 26px;
+}
+/* ======================  Features Section End  ======================*/

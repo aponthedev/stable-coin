@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title -->
+  <title>OvoSolutionscode Starter Pack</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/favicon.png">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <!-- line awesome -->
+  <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <!-- Swiper -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="assets/css/select2.min.css">
+  <!-- Main css -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+  <!--==================== Preloader Start ====================-->
+<div class="preloader">
+    <div class="loader__text" data-text="OvO Solution"></div>
+</div>
+<!--==================== Preloader End ====================-->
+
+
+  <!-- ==================== Scroll to Top Start ==================== -->
+  <a class="scroll-top"><i class="fas fa-angle-double-up"></i></a>
+  <!-- ==================== Scroll to Top End ==================== -->
+
+
+  <!--==========================  Overlay Start  ==========================-->
+  <div class="overlay"></div>
+  <!--==========================  Overlay End  ==========================-->
+<!--==========================  Offcanvas Section Start  ==========================-->
+<div class="offcanvas__area">
+    <div class="offcanvas__topbar">
+        <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo"></a>
+        <span class="menu__close"><i class="las la-times"></i></span>
+    </div>
+    <div class="offcanvas__main">
+        <div class="offcanvas__widgets">
+            <div class="offcanvas__language">
+                <div class="dropdown">
+                    <div role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="language__item">
+                            <img src="assets/images/english.png" alt="image">
+                            <p>English</p>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="language__item dropdown-item">
+                                <img src="assets/images/english.png" alt="image">
+                                <p>English</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="language__item dropdown-item">
+                                <img src="assets/images/bangla.png" alt="image">
+                                <p>Bangla</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="language__item dropdown-item">
+                                <img src="assets/images/hindi.png" alt="image">
+                                <p>Hindi</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="offcanvas__login">
+                <a href="#" class="btn btn--base">Sign in</a>
+                <!-- <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+        <div class="offcanvas__menu">
+            <ul>
+                <li><a href="#" class="active">About Us</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="404.html">Error Page</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!--==========================  Offcanvas Section End  ==========================-->
+
+
+<!-- ==================== Header Start Here ==================== -->
+<header class="header__area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header__main">
+                    <div class="header__logo">
+                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo"></a>
+                    </div>
+                    <div class="header__menu">
+                        <ul>
+                            <li><a href="index.html" class="active">Home</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="404.html">Error Page</a></li>
+                            <li><a href="dashboard.html">Dashboard</a></li>
+                        </ul>
+                    </div>
+                    <div class="header__widgets">
+                        <div class="dropdown">
+                            <div role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="language__item">
+                                    <img src="assets/images/english.png" alt="image">
+                                    <p>English</p>
+                                </div>
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="language__item dropdown-item">
+                                        <img src="assets/images/english.png" alt="image">
+                                        <p>English</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="language__item dropdown-item">
+                                        <img src="assets/images/bangla.png" alt="image">
+                                        <p>Bangla</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="language__item dropdown-item">
+                                        <img src="assets/images/hindi.png" alt="image">
+                                        <p>Hindi</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__login">
+                            <a href="#" class="btn btn--base">Sign in</a>
+                            <!-- <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Account
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+                    <span class="menu__open"><i class="fa-solid fa-bars"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ==================== Header End Here ==================== -->
+<main>
+
+    <section class="banner">
+    <span class="banner__bg"><img src="assets/images/banner/banner-bg.jpg" alt="image"></span>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="banner__wrap">
+
+                    <div class="banner__heading">
+                        <h2 class="banner__heading__title">EARN. INVEST. <span> OWN.</span></h2>
+                        <p class="banner__heading__desc">Take complete control of your wealth. Open a global multi-currency account, invest in digital assets, and spend seamlessly anywhere in the world—all from one secure dashboard.</p>
+                        <a href="#" class="btn btn--base">OPEN YOUR ACCOUNT IN 60 SECONDS</a>
+                    </div>
+                    <ul class="banner__point">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 170 170" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M146.756 69.865a5 5 0 0 0-4.2 5.688c5.986 38.218-24.691 73.902-63.436 73.566-85.055-3.519-85.048-124.726 0-128.24 14.308 0 27.84 4.609 39.133 13.328a5 5 0 0 0 6.112-7.916C111.305 16.208 95.66 10.879 79.12 10.879c-98.316 4.063-98.315 144.179 0 148.24 44.788.385 80.259-40.868 73.323-85.055a4.994 4.994 0 0 0-5.688-4.2z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path><path d="M163.528 23.274a4.998 4.998 0 0 0-7.071.016l-76.991 77.326-25.41-25.526a5.001 5.001 0 0 0-7.088 7.054l28.954 29.086a4.999 4.999 0 0 0 7.087 0l80.534-80.885a5 5 0 0 0-.015-7.07z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path></g></svg> Open a global USD account</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 170 170" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M146.756 69.865a5 5 0 0 0-4.2 5.688c5.986 38.218-24.691 73.902-63.436 73.566-85.055-3.519-85.048-124.726 0-128.24 14.308 0 27.84 4.609 39.133 13.328a5 5 0 0 0 6.112-7.916C111.305 16.208 95.66 10.879 79.12 10.879c-98.316 4.063-98.315 144.179 0 148.24 44.788.385 80.259-40.868 73.323-85.055a4.994 4.994 0 0 0-5.688-4.2z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path><path d="M163.528 23.274a4.998 4.998 0 0 0-7.071.016l-76.991 77.326-25.41-25.526a5.001 5.001 0 0 0-7.088 7.054l28.954 29.086a4.999 4.999 0 0 0 7.087 0l80.534-80.885a5 5 0 0 0-.015-7.07z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path></g></svg>Deposit USD, USDC/T, or crypto</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 170 170" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M146.756 69.865a5 5 0 0 0-4.2 5.688c5.986 38.218-24.691 73.902-63.436 73.566-85.055-3.519-85.048-124.726 0-128.24 14.308 0 27.84 4.609 39.133 13.328a5 5 0 0 0 6.112-7.916C111.305 16.208 95.66 10.879 79.12 10.879c-98.316 4.063-98.315 144.179 0 148.24 44.788.385 80.259-40.868 73.323-85.055a4.994 4.994 0 0 0-5.688-4.2z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path><path d="M163.528 23.274a4.998 4.998 0 0 0-7.071.016l-76.991 77.326-25.41-25.526a5.001 5.001 0 0 0-7.088 7.054l28.954 29.086a4.999 4.999 0 0 0 7.087 0l80.534-80.885a5 5 0 0 0-.015-7.07z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path></g></svg> Spend anywhere with cards</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 170 170" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M146.756 69.865a5 5 0 0 0-4.2 5.688c5.986 38.218-24.691 73.902-63.436 73.566-85.055-3.519-85.048-124.726 0-128.24 14.308 0 27.84 4.609 39.133 13.328a5 5 0 0 0 6.112-7.916C111.305 16.208 95.66 10.879 79.12 10.879c-98.316 4.063-98.315 144.179 0 148.24 44.788.385 80.259-40.868 73.323-85.055a4.994 4.994 0 0 0-5.688-4.2z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path><path d="M163.528 23.274a4.998 4.998 0 0 0-7.071.016l-76.991 77.326-25.41-25.526a5.001 5.001 0 0 0-7.088 7.054l28.954 29.086a4.999 4.999 0 0 0 7.087 0l80.534-80.885a5 5 0 0 0-.015-7.07z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path></g></svg>Invest in crypto, stocks, & other asset classes</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 170 170" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M146.756 69.865a5 5 0 0 0-4.2 5.688c5.986 38.218-24.691 73.902-63.436 73.566-85.055-3.519-85.048-124.726 0-128.24 14.308 0 27.84 4.609 39.133 13.328a5 5 0 0 0 6.112-7.916C111.305 16.208 95.66 10.879 79.12 10.879c-98.316 4.063-98.315 144.179 0 148.24 44.788.385 80.259-40.868 73.323-85.055a4.994 4.994 0 0 0-5.688-4.2z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path><path d="M163.528 23.274a4.998 4.998 0 0 0-7.071.016l-76.991 77.326-25.41-25.526a5.001 5.001 0 0 0-7.088 7.054l28.954 29.086a4.999 4.999 0 0 0 7.087 0l80.534-80.885a5 5 0 0 0-.015-7.07z" fill="currentColor" opacity="1" data-original="currentColor" class=""></path></g></svg> Earn upto 10% APY on autopilot</li>
+                       
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="col-lg-6">
+                <div class="banner__image__wrap">
+    
+                    <div class="banner__thumb text-center">
+                         <img class="banner__thumb-left" src="assets/images/banner/banner-phone2.png" alt="image">
+                         <img class="banner__thumb-center" src="assets/images/banner/banner-phone1.png" alt="image">
+                         <img class="banner__thumb-right" src="assets/images/banner/banner-phone2.png" alt="image">
+                    </div>
+                </div>
+
+                
+            </div>
+        </div> 
+
+    </div>
+</section>
+    <!--==========================  Brand Section Start  ==========================-->
+<div class="brand__area">
+    <div class="containerr">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="brand__wrap">
+                    <div class="swiper brand__slider">
+                        <div class="swiper-wrapper slide-transition">
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand1.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand2.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand3.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand4.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand5.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand1.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand2.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand3.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand4.png" alt="image">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/images/brand5.png" alt="image">
+                            </div>
+                        </div>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==========================  Brand Section End  ==========================--> 
+    <!--==========================  Features Section Start  ==========================-->
+<section class="features py-100">
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="section-heading text-center">
+                <h2 class="section-heading__title">Intelligent finance, powered <span> by AI.</span></h2>
+                <p class="section-heading__desc">Take your banking, investing, and earning to the next level. Our advanced AI automates your financial journey, making it smarter, faster, and effortlessly secure.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="features__card">
+              <div class="features__content">
+                 <h3 class="features__title">Bank</h3>
+                  <p class="features__desc">A USD bank account with a payment card that works globally.</p>
+              </div>
+
+             <div class="features__image">
+                  <img src="assets/images/banner/feature.svg" alt="image">
+             </div>
+           </div>
+         </div>        
+      <div class="col-lg-4">
+          <div class="features__card">
+              <div class="features__content">
+                 <h3 class="features__title">Invest</h3>
+                  <p class="features__desc">Unlock wealth through global assets, including crypto, stocks, metals, bonds, & commodities.</p>
+              </div>
+
+             <div class="features__image">
+                  <img class="features__two" src="assets/images/banner/feature2.svg" alt="image">
+             </div>
+           </div>
+         </div>        
+      <div class="col-lg-4">
+          <div class="features__card">
+              <div class="features__content">
+                 <h3 class="features__title">Earn</h3>
+                  <p class="features__desc">Give your savings a raise. Earn on auto-pilot.</p>
+              </div>
+
+             <div class="features__image">
+                  <img class="features__two" src="assets/images/banner/feature3.svg" alt="image">
+             </div>
+           </div>
+         </div>        
+    </div>
+  </div>
+</section>
+<!--==========================  Features Section End  ==========================-->
+    <!--==========================  Country Section Start  ==========================-->
+<section class="country-map py-100">
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="section-heading text-center">
+                <h2 class="section-heading__title">Global Presence, <span>Local Access.</span></h2>
+                <p class="section-heading__desc">We operate in over 20+ countries, bringing borderless financial services directly to your fingertips.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="country-map__container">
+      <!-- Faint Background Map Image -->
+      <div class="country-map__background"></div>
+      
+      <!-- 20 Country Markers -->
+      <div class="marker marker--us" style="top: 35%; left: 20%;"><img src="https://flagcdn.com/w40/us.png" alt="USA"><div class="marker__pulse"></div><div class="marker__tooltip">United States</div></div>
+      <div class="marker marker--ca" style="top: 20%; left: 22%;"><img src="https://flagcdn.com/w40/ca.png" alt="Canada"><div class="marker__pulse"></div><div class="marker__tooltip">Canada</div></div>
+      <div class="marker marker--mx" style="top: 45%; left: 18%;"><img src="https://flagcdn.com/w40/mx.png" alt="Mexico"><div class="marker__pulse"></div><div class="marker__tooltip">Mexico</div></div>
+      <div class="marker marker--br" style="top: 65%; left: 32%;"><img src="https://flagcdn.com/w40/br.png" alt="Brazil"><div class="marker__pulse"></div><div class="marker__tooltip">Brazil</div></div>
+      <div class="marker marker--ar" style="top: 80%; left: 28%;"><img src="https://flagcdn.com/w40/ar.png" alt="Argentina"><div class="marker__pulse"></div><div class="marker__tooltip">Argentina</div></div>
+      
+      <div class="marker marker--gb" style="top: 25%; left: 47%;"><img src="https://flagcdn.com/w40/gb.png" alt="United Kingdom"><div class="marker__pulse"></div><div class="marker__tooltip">United Kingdom</div></div>
+      <div class="marker marker--fr" style="top: 30%; left: 48%;"><img src="https://flagcdn.com/w40/fr.png" alt="France"><div class="marker__pulse"></div><div class="marker__tooltip">France</div></div>
+      <div class="marker marker--es" style="top: 33%; left: 47%;"><img src="https://flagcdn.com/w40/es.png" alt="Spain"><div class="marker__pulse"></div><div class="marker__tooltip">Spain</div></div>
+      <div class="marker marker--de" style="top: 27%; left: 51%;"><img src="https://flagcdn.com/w40/de.png" alt="Germany"><div class="marker__pulse"></div><div class="marker__tooltip">Germany</div></div>
+      <div class="marker marker--it" style="top: 32%; left: 51%;"><img src="https://flagcdn.com/w40/it.png" alt="Italy"><div class="marker__pulse"></div><div class="marker__tooltip">Italy</div></div>
+      
+      <div class="marker marker--ng" style="top: 55%; left: 49%;"><img src="https://flagcdn.com/w40/ng.png" alt="Nigeria"><div class="marker__pulse"></div><div class="marker__tooltip">Nigeria</div></div>
+      <div class="marker marker--za" style="top: 75%; left: 54%;"><img src="https://flagcdn.com/w40/za.png" alt="South Africa"><div class="marker__pulse"></div><div class="marker__tooltip">South Africa</div></div>
+      <div class="marker marker--eg" style="top: 40%; left: 55%;"><img src="https://flagcdn.com/w40/eg.png" alt="Egypt"><div class="marker__pulse"></div><div class="marker__tooltip">Egypt</div></div>
+      <div class="marker marker--ae" style="top: 45%; left: 61%;"><img src="https://flagcdn.com/w40/ae.png" alt="UAE"><div class="marker__pulse"></div><div class="marker__tooltip">UAE</div></div>
+      
+      <div class="marker marker--in" style="top: 45%; left: 70%;"><img src="https://flagcdn.com/w40/in.png" alt="India"><div class="marker__pulse"></div><div class="marker__tooltip">India</div></div>
+      <div class="marker marker--cn" style="top: 35%; left: 76%;"><img src="https://flagcdn.com/w40/cn.png" alt="China"><div class="marker__pulse"></div><div class="marker__tooltip">China</div></div>
+      <div class="marker marker--sg" style="top: 58%; left: 77%;"><img src="https://flagcdn.com/w40/sg.png" alt="Singapore"><div class="marker__pulse"></div><div class="marker__tooltip">Singapore</div></div>
+      <div class="marker marker--kr" style="top: 35%; left: 84%;"><img src="https://flagcdn.com/w40/kr.png" alt="South Korea"><div class="marker__pulse"></div><div class="marker__tooltip">South Korea</div></div>
+      <div class="marker marker--jp" style="top: 35%; left: 88%;"><img src="https://flagcdn.com/w40/jp.png" alt="Japan"><div class="marker__pulse"></div><div class="marker__tooltip">Japan</div></div>
+      <div class="marker marker--au" style="top: 75%; left: 85%;"><img src="https://flagcdn.com/w40/au.png" alt="Australia"><div class="marker__pulse"></div><div class="marker__tooltip">Australia</div></div>
+    </div>
+  </div>
+</section>
+<!--==========================  Country Section End  =========================-->
+
+    <!--==========================  Why Choose Us Section Start  ==========================-->
+<section class="why-choose py-100">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Sticky Left & Middle Column (Col-8) -->
+      <div class="col-lg-8 sticky-column mb-5 mb-lg-0">
+        <div class="row align-items-center">
+          
+          <!-- Steps Navigation (col-md-5) -->
+          <div class="col-md-5 mb-4 mb-md-0 d-flex flex-column justify-content-between">
+            <div class="why-choose__steps">
+              <div class="why-choose__progress-bar"></div>
+              <div class="step-item active" data-step="1">
+                <span class="step-number">01</span>
+                <span class="step-text">USD ACCOUNT</span>
+              </div>
+              <div class="step-item" data-step="2">
+                <span class="step-number">02</span>
+                <span class="step-text">CARD</span>
+              </div>
+              <div class="step-item" data-step="3">
+                <span class="step-number">03</span>
+                <span class="step-text">INVEST</span>
+              </div>
+            </div>
+
+            <!-- Scroll Guide Indicator (Apple/Fasset Style) -->
+            <div class="scroll-guide-indicator d-none d-lg-flex align-items-center gap-3 mt-5 px-3">
+              <div class="mouse-icon">
+                <span class="wheel"></span>
+              </div>
+              <div class="guide-text">
+                <span class="d-block text-muted text-uppercase" style="font-size: 9px; letter-spacing: 1.5px; font-weight: 700; opacity: 0.6;">Scroll to navigate</span>
+                <div class="guide-direction text-white" style="font-size: 11px; font-weight: 600; margin-top: 2px;">
+                  <span class="direction-down active"><i class="las la-arrow-down" style="color: #1ecb81; font-weight: 900;"></i> Scroll Down</span>
+                  <span class="direction-up"><i class="las la-arrow-up" style="color: #1ecb81; font-weight: 900;"></i> Scroll Up</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- CSS-Only Smartphone Mockup (col-md-7) -->
+          <div class="col-md-7 d-flex justify-content-center position-relative">
+            <div class="phone-glow-container">
+              <div class="phone-glow glow-usd active" id="phone-glow-1"></div>
+              <div class="phone-glow glow-card" id="phone-glow-2"></div>
+              <div class="phone-glow glow-vault" id="phone-glow-3"></div>
+            </div>
+            <div class="phone-mockup">
+              <!-- iPhone Outer Shell -->
+              <div class="phone-frame">
+                <div class="phone-speaker"></div>
+                <div class="phone-dynamic-island d-flex align-items-center justify-content-center gap-1.5">
+                  <span class="dynamic-status-dot"></span>
+                  <span class="dynamic-label dynamic-label--usd">Secure Connection</span>
+                  <span class="dynamic-label dynamic-label--card">OVO Card Active</span>
+                  <span class="dynamic-label dynamic-label--vault">Vaulting 8.2% APY</span>
+                </div>
+                
+                <!-- Phone Screen -->
+                <div class="phone-screen">
+                  
+                  <!-- Status Bar -->
+                  <div class="phone-status-bar d-flex justify-content-between align-items-center">
+                    <span class="phone-time">9:41</span>
+                    <div class="phone-icons d-flex align-items-center gap-1">
+                      <i class="las la-signal"></i>
+                      <i class="las la-wifi"></i>
+                      <i class="las la-battery-full"></i>
+                    </div>
+                  </div>
+                  
+                  <!-- SCREEN 1: USD Checking Account (Active by default) -->
+                  <div class="phone-screen-wrapper active" id="phone-screen-1">
+                    <!-- App Header -->
+                    <div class="phone-header d-flex justify-content-between align-items-center px-3 mt-2">
+                      <i class="las la-angle-left phone-back"></i>
+                      <span class="phone-header-title">USD checking account</span>
+                      <i class="las la-cog phone-cog"></i>
+                    </div>
+                    
+                    <!-- Balance Card -->
+                    <div class="phone-balance-card p-3 mx-3 mt-3">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span class="balance-label">Balance <i class="las la-info-circle"></i></span>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center mt-1">
+                        <span class="balance-amount">$12,345.90 <i class="las la-eye-slash balance-eye"></i></span>
+                      </div>
+                      <div class="balance-iban-row d-flex justify-content-between align-items-center mt-3 p-2">
+                        <div class="d-flex align-items-center gap-2">
+                          <img src="https://flagcdn.com/w40/us.png" alt="USA Flag" class="balance-flag">
+                          <span class="balance-iban">IBAN: US51 1234 5678 1234 5678 123</span>
+                        </div>
+                        <i class="las la-angle-right"></i>
+                      </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="phone-actions d-flex justify-content-around mx-3 mt-3">
+                      <div class="action-btn-wrapper">
+                        <div class="action-btn action-btn--add">
+                          <i class="las la-arrow-down"></i>
+                        </div>
+                        <span class="action-label">Add</span>
+                      </div>
+                      <div class="action-btn-wrapper">
+                        <div class="action-btn">
+                          <i class="las la-arrow-up"></i>
+                        </div>
+                        <span class="action-label">Send</span>
+                      </div>
+                      <div class="action-btn-wrapper">
+                        <div class="action-btn">
+                          <i class="las la-exchange-alt"></i>
+                        </div>
+                        <span class="action-label">Move</span>
+                      </div>
+                    </div>
+                    
+                    <!-- Transactions Feed -->
+                    <div class="phone-transactions px-3 mt-3">
+                      <span class="transactions-title d-block mb-2">Transactions</span>
+                      <span class="transactions-date d-block mb-2">Today — 13 Jan 2025</span>
+                      
+                      <div class="transaction-item d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="transaction-icon"><i class="las la-shopping-cart"></i></div>
+                          <div>
+                            <span class="transaction-name d-block">Groceries</span>
+                            <span class="transaction-time d-block">7:34 PM</span>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <span class="transaction-amount d-block negative">-10.00 USD</span>
+                          <span class="transaction-points"><i class="las la-star"></i> 20</span>
+                        </div>
+                      </div>
+                      
+                      <div class="transaction-item d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="transaction-icon"><i class="las la-gas-pump"></i></div>
+                          <div>
+                            <span class="transaction-name d-block">Gas</span>
+                            <span class="transaction-time d-block">08:54 AM</span>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <span class="transaction-amount d-block negative">-2.40 USD</span>
+                          <span class="transaction-points"><i class="las la-star"></i> 20</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- SCREEN 2: Premium Banking Card -->
+                  <div class="phone-screen-wrapper" id="phone-screen-2">
+                    <div class="phone-header d-flex justify-content-between align-items-center px-3 mt-2">
+                      <i class="las la-angle-left phone-back"></i>
+                      <span class="phone-header-title">My Cards</span>
+                      <i class="las la-plus phone-cog"></i>
+                    </div>
+                    
+                    <!-- Virtual Debit Card Layout -->
+                    <div class="phone-debit-card p-3 mx-3 mt-3 d-flex flex-column justify-content-between">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span class="card-brand-name">OVO Platinum</span>
+                        <i class="las la-wifi-slash contactless-icon"></i>
+                      </div>
+                      <div class="card-number-wrapper mt-3">
+                        <span class="card-number">•••• •••• •••• 8824</span>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center mt-3">
+                        <div>
+                          <span class="card-holder-label d-block">CARD HOLDER</span>
+                          <span class="card-holder-name">ASHRAF RAHMAN</span>
+                        </div>
+                        <div class="card-expiry-wrapper">
+                          <span class="card-expiry-label d-block">EXPIRES</span>
+                          <span class="card-expiry">12/30</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Card Quick Settings -->
+                    <div class="phone-card-settings p-3 mx-3 mt-3">
+                      <span class="settings-title d-block mb-3">Card Controls</span>
+                      <div class="control-item d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="control-icon"><i class="las la-snowflake"></i></div>
+                          <span class="control-name">Freeze Card</span>
+                        </div>
+                        <div class="form-check form-switch m-0">
+                          <input class="form-check-input" type="checkbox" role="switch" checked>
+                        </div>
+                      </div>
+                      <div class="control-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="control-icon"><i class="las la-eye"></i></div>
+                          <span class="control-name">Show Card Details</span>
+                        </div>
+                        <i class="las la-angle-right text-muted"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- SCREEN 3: Wealth & Investments -->
+                  <div class="phone-screen-wrapper" id="phone-screen-3">
+                    <div class="phone-header d-flex justify-content-between align-items-center px-3 mt-2">
+                      <i class="las la-angle-left phone-back"></i>
+                      <span class="phone-header-title">Wealth & Vaults</span>
+                      <i class="las la-chart-pie phone-cog"></i>
+                    </div>
+                    
+                    <!-- Vault Yield Balance -->
+                    <div class="phone-yield-card p-3 mx-3 mt-3 text-center">
+                      <span class="yield-label d-block">Vault APY Yield Balance</span>
+                      <span class="yield-amount d-block mt-1">$45,280.12</span>
+                      <span class="yield-rate d-inline-block mt-2 px-2 py-1"><i class="las la-arrow-up"></i> +8.2% APY Growth</span>
+                    </div>
+                    
+                    <!-- Small Sparkline / Mock Chart Layout -->
+                    <div class="phone-chart-box p-3 mx-3 mt-3">
+                      <div class="chart-header d-flex justify-content-between align-items-center mb-2">
+                        <span class="chart-title">Growth Performance</span>
+                        <span class="chart-timeframe">1 Month</span>
+                      </div>
+                      <!-- Mocking a premium neon gradient wave chart using pure CSS -->
+                      <div class="mock-chart-container">
+                        <div class="wave-line"></div>
+                        <div class="wave-gradient-fill"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Bottom Tab Bar -->
+                  <div class="phone-nav d-flex justify-content-around align-items-center mt-auto">
+                    <div class="nav-item">
+                      <i class="las la-home"></i>
+                      <span>Today</span>
+                    </div>
+                    <div class="nav-item active">
+                      <i class="las la-wallet"></i>
+                      <span>Accounts</span>
+                    </div>
+                    <div class="nav-item">
+                      <i class="las la-gift"></i>
+                      <span>Rewards</span>
+                    </div>
+                    <div class="nav-item">
+                      <i class="las la-chart-bar"></i>
+                      <span>Market</span>
+                    </div>
+                    <div class="nav-item">
+                      <i class="las la-credit-card"></i>
+                      <span>Pay</span>
+                    </div>
+                  </div>
+                  
+                </div> <!-- End Screen -->
+              </div> <!-- End Frame -->
+            </div> <!-- End Mockup -->
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Scrolling Right Column (Col-4) -->
+      <div class="col-lg-4 scrolling-column">
+        <div class="why-choose__content-deck">
+          
+          <!-- BLOCK 1: USD Account Details -->
+          <div class="content-block active" id="content-block-1" data-step="1">
+            <div class="why-choose__content">
+              <h2 class="why-choose__title mb-4">Your USD account <br>in 60 seconds.</h2>
+              
+              <ul class="why-choose__list p-0 mb-4">
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-globe"></i></div>
+                  <p class="m-0">Open a US dollar account instantly from anywhere in the world.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-exchange-alt"></i></div>
+                  <p class="m-0">Deposit and withdraw cash & USDC/T instantly</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-briefcase"></i></div>
+                  <p class="m-0">Send & receive cross-border payments seamlessly.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-calculator"></i></div>
+                  <p class="m-0">Access salary, remittances, and business payments directly into your account.</p>
+                </li>
+              </ul>
+              
+              <!-- Brands Grid -->
+              <div class="why-choose__partners mt-4">
+                <span class="partners-title d-block mb-3">Receive From</span>
+                <div class="partners-grid d-flex flex-wrap gap-2 align-items-center">
+                  <div class="partner-box partner-box--fiverr">fiverr</div>
+                  <div class="partner-box partner-box--payoneer">
+                    <span class="circle-gradient"></span>
+                  </div>
+                  <div class="partner-box partner-box--upwork">up<span>work</span></div>
+                  <div class="partner-box partner-box--wise">wise</div>
+                  <div class="partner-box partner-box--others">& others</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- BLOCK 2: Card Details -->
+          <div class="content-block" id="content-block-2" data-step="2">
+            <div class="why-choose__content">
+              <h2 class="why-choose__title mb-4">A premium card <br>for world citizens.</h2>
+              
+              <ul class="why-choose__list p-0 mb-4">
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-credit-card"></i></div>
+                  <p class="m-0">Order a physical or virtual premium card instantly with no hidden fees.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-store-alt"></i></div>
+                  <p class="m-0">Spend globally with zero foreign markup or conversion commissions.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-shield-alt"></i></div>
+                  <p class="m-0">Instantly freeze, block, or configure spending limits from the app.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-percent"></i></div>
+                  <p class="m-0">Earn up to 2% cashback paid out automatically in stablecoins.</p>
+                </li>
+              </ul>
+              
+              <!-- Pay Partners Grid -->
+              <div class="why-choose__partners mt-4">
+                <span class="partners-title d-block mb-3">Supported Networks</span>
+                <div class="partners-grid d-flex flex-wrap gap-2 align-items-center">
+                  <div class="partner-box"><i class="las la-cc-visa" style="font-size: 24px;"></i> Visa</div>
+                  <div class="partner-box"><i class="las la-cc-mastercard" style="font-size: 24px; color: #eb001b;"></i> Mastercard</div>
+                  <div class="partner-box"><i class="las la-apple" style="font-size: 20px;"></i> Pay</div>
+                  <div class="partner-box"><i class="las la-google-wallet" style="font-size: 20px;"></i> Pay</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- BLOCK 3: Wealth & Investments Details -->
+          <div class="content-block" id="content-block-3" data-step="3">
+            <div class="why-choose__content">
+              <h2 class="why-choose__title mb-4">Grow your yield <br>effortlessly.</h2>
+              
+              <ul class="why-choose__list p-0 mb-4">
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-chart-line"></i></div>
+                  <p class="m-0">Invest in high-yield compound vaults with as little as $1.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-coins"></i></div>
+                  <p class="m-0">Earn up to 8.2% APY paid out daily directly into your account.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-clock"></i></div>
+                  <p class="m-0">Zero lockup periods. Deposit or withdraw your assets at any millisecond.</p>
+                </li>
+                <li class="d-flex gap-3 align-items-center mb-3">
+                  <div class="list-icon"><i class="las la-check-circle"></i></div>
+                  <p class="m-0">Fully asset-backed, audited, and protected vaults for maximum safety.</p>
+                </li>
+              </ul>
+              
+              <!-- Wealth Assets Grid -->
+              <div class="why-choose__partners mt-4">
+                <span class="partners-title d-block mb-3">Vault Currencies</span>
+                <div class="partners-grid d-flex flex-wrap gap-2 align-items-center">
+                  <div class="partner-box">USDT</div>
+                  <div class="partner-box">USDC</div>
+                  <div class="partner-box">BTC</div>
+                  <div class="partner-box">ETH</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</section>
+<!--==========================  Why Choose Us Section End  ==========================-->
+
+
+</main>
+
+<!-- Jquery js -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap Bundle Js -->
+<script src="assets/js/boostrap.bundle.min.js"></script>
+<!-- Magnific Popup Js -->
+<script src="assets/js/magnific-popup.min.js"></script>
+<!-- Scrollreveal Js -->
+<script src="assets/js/scrollreveal.min.js"></script>
+<!-- Swiper Js -->
+<script src="assets/js/swiper-bundle.min.js"></script>
+<!-- Odometer Js -->
+<script src="assets/js/odometer.min.js"></script>
+<!-- Select2 Js -->
+<script src="assets/js/select2.min.js"></script>
+<!-- gsap.min.js --> 
+<script src="assets/js/gsap.min.js"></script>
+<!-- ScrollTrigger.min.js --> 
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<!-- SplitText.min.js --> 
+<script src="assets/js/SplitText.min.js"></script>
+<!-- main js -->
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

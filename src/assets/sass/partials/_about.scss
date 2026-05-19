@@ -1,0 +1,61 @@
+/* ======================  About Section Start  ======================*/
+.about__image {
+  max-width: 580px;
+}
+
+.about__items__card {
+  position: relative;
+  background-color: hsl(var(--body-bg));
+  padding: 16px;
+  border-radius: 12px;
+  z-index: 1;
+  overflow: hidden;
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(130deg, hsl(var(--base)), hsl(var(--base-two)));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &__icon {
+    color: hsl(var(--base-two));
+    transition: color 0.3s ease;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 3;
+    border: 1px solid hsl(var(--base-two));
+    height: 46px;
+    width: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background-color: hsl(var(--white) / 0.1);
+  }
+
+  &__title {
+    font-size: 24px;
+    margin-bottom: 8px;
+    background: linear-gradient(95deg, hsl(var(--base)), hsl(var(--base-two)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__desc {
+    font-size: 14px;
+  }
+}
+
+/* ======================  About Section End  ======================*/

@@ -1,0 +1,128 @@
+/* ======================  Country Section Start  ======================*/
+.country-map {
+  position: relative;
+  overflow: hidden;
+  background-color: hsl(var(--white) / 0.04);
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%; /* Perfect 2:1 Aspect Ratio to prevent map clipping */
+    margin-top: 50px;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    /* High-quality vector dotted world map for a premium tech aesthetic */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a0/World_map_with_points.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.12;
+    filter: invert(1);
+    z-index: 0;
+  }
+
+  /* Marker Styling */
+  .marker {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translate(-50%, -60%) scale(1.1);
+      z-index: 10;
+
+      .marker__tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -10px);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: none;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Animated Radar Pulse */
+    &__pulse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: hsl(var(--base));
+      z-index: 1;
+      animation: radarPulse 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    /* Glassmorphism Tooltip */
+    &__tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: rgba(17, 17, 17, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid hsl(var(--border-color) / 0.2);
+      color: hsl(var(--white));
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: rgba(17, 17, 17, 0.85) transparent transparent transparent;
+      }
+    }
+  }
+}
+
+/* Keyframes for Marker Pulse */
+@keyframes radarPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+/* ======================  Country Section End  ======================*/

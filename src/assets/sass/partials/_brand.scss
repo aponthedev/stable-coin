@@ -1,0 +1,30 @@
+/* ======================  Brand Section Start  ======================*/
+
+.brand__area {
+  overflow: hidden;
+}
+
+.slide-transition {
+  transition-timing-function: linear;
+}
+
+.brand__slider .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand__slider .swiper-slide img {
+  width: 100%;
+  filter: invert(1) brightness(100);
+}
+.brand__wrap {
+  background-color: hsl(var(--base));
+  backdrop-filter: blur(10px);
+  padding: 40px;
+
+  @include sm-screen {
+    padding: 24px;
+  }
+}
+/* ======================  Brand Section End  ======================*/
