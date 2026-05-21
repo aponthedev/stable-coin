@@ -37,7 +37,9 @@
   }
 
   .accordion-button {
-    background-color: hsl(var(--section-bg));
+    background-color: hsl(var(--white) / 0.1);
+    border: unset !important;
+    overflow: hidden;
     color: var(--heading-color);
     font-size: 18px;
     padding: 15px;

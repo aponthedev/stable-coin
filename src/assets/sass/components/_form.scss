@@ -1,9 +1,9 @@
 /* ================================= Form Css Start =========================== */
 /* Form Label */
 .form-label {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   font-size: 15px;
-  color: hsl(var(--heading-color));
+  color: hsl(var(--white));
   font-weight: 500;
 }
 
@@ -40,25 +40,27 @@ label.required:after {
 
 /* Form Control Start */
 .form-control {
-  border-radius: 5px;
+  border-radius: 999px;
   font-weight: 400;
   outline: none;
   width: 100%;
   padding: 14px 18px;
-  background-color: transparent;
-  border: 1px solid hsl(var(--black) / 0.1);
-  color: hsl(var(--black));
+  background-color: hsl(var(--white) / 0.1);
+  border: 1px solid hsl(var(--white) / 0.2);
+  color: hsl(var(--white) / 0.8);
   line-height: 1;
+  backdrop-filter: blur(5px);
 
   &::placeholder {
-    color: hsl(var(--black) / 0.6);
+    color: hsl(var(--white) / 0.6);
     font-size: 14px;
   }
 
   &:focus {
-    background-color: hsl(var(--white));
-    border-color: hsl(var(--black) / 0.2);
+    background-color: hsl(var(--white) / 0.2);
+    border-color: hsl(var(--base));
     box-shadow: none;
+    color: hsl(var(--white));
   }
 
   &:disabled,
@@ -121,8 +123,8 @@ input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-  -webkit-text-fill-color: hsl(var(--black)) !important;
-  caret-color: hsl(var(--black));
+  -webkit-text-fill-color: hsl(var(--white) / 0.8) !important;
+  caret-color: hsl(var(--white) / 0.8);
 }
 
 /* Autofill Css End */
@@ -149,7 +151,7 @@ select:-webkit-autofill {
   cursor: pointer;
   top: 50%;
   transform: translateY(-50%);
-  color: hsl(var(--black)/0.4);
+  color: hsl(var(--white) / 0.4);
 }
 
 .password-show-hide .open-eye-icon {
@@ -348,7 +350,10 @@ input[type='number'] {
   border-radius: 5px;
   border: 1px solid hsl(var(--black) / 0.1);
 
-  &> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  &
+    > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+      .valid-feedback
+    ):not(.invalid-tooltip):not(.invalid-feedback) {
     margin-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -364,7 +369,7 @@ input[type='number'] {
     }
   }
 
-  .input-group-text+.form-control {
+  .input-group-text + .form-control {
     padding-right: 20px;
     padding-left: 10px;
   }

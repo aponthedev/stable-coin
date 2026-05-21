@@ -1,0 +1,18 @@
+/* ======================  Privicy-policy Section Start  ======================*/
+.privicy-policy {
+  background-color: hsl(var(--white) / 0.04);
+  &__item {
+    margin-bottom: 24px;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  &__desc {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+/* ======================  Privicy-policy Section End  ======================*/

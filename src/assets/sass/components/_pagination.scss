@@ -58,4 +58,58 @@
   }
 }
 
+.blog__pagination {
+  margin-top: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  &-link,
+  &-arrow,
+  &-dots {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--white) / 0.78);
+    border: 1px solid hsl(var(--white) / 0.12);
+    border-radius: 50%;
+    background: hsl(var(--white) / 0.04);
+    font-weight: 700;
+  }
+
+  &-link,
+  &-arrow {
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover,
+    &.active {
+      color: hsl(var(--body-bg));
+      border-color: transparent;
+      background: linear-gradient(135deg, hsl(var(--base)), hsl(var(--base-two)));
+      box-shadow: 0 12px 30px hsl(var(--base) / 0.22);
+      transform: translateY(-3px);
+    }
+  }
+
+  &-arrow {
+    font-size: 20px;
+  }
+
+  &-dots {
+    border-color: transparent;
+    background: transparent;
+    color: hsl(var(--white) / 0.5);
+  }
+}
+
 /* ================================= Pagination Css End =========================== */

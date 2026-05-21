@@ -68,6 +68,200 @@
   }
   // ========================= Brand Swiper Js End =====================
 
+  // ========================= Stable Card GSAP Start =====================
+  $(window).on('load', function () {
+    if (
+      $('.stable-card__thumb').length &&
+      typeof gsap !== 'undefined' &&
+      typeof ScrollTrigger !== 'undefined'
+    ) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches;
+
+      if (reduceMotion) {
+        gsap.set('.stable-card__thumb', { opacity: 1 });
+        return;
+      }
+
+      const isDesktop = window.matchMedia('(min-width: 992px)').matches;
+
+      gsap.set('.stable-card__thumb--front', {
+        opacity: 1,
+        zIndex: 3,
+        xPercent: -50,
+        yPercent: -50,
+        x: 0,
+        y: 0,
+        rotation: 0,
+        rotationY: -5,
+        scale: 1,
+      });
+
+      gsap.set('.stable-card__thumb--middle', {
+        opacity: 0.24,
+        zIndex: 2,
+        xPercent: -50,
+        yPercent: -50,
+        x: -72,
+        y: 58,
+        scale: 0.84,
+        rotation: -8,
+      });
+
+      gsap.set('.stable-card__thumb--back', {
+        opacity: 0.14,
+        zIndex: 1,
+        xPercent: -50,
+        yPercent: -50,
+        x: 86,
+        y: -56,
+        scale: 0.74,
+        rotation: 10,
+      });
+
+      const stableCardTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.stable-card',
+          start: isDesktop ? 'top top' : 'top 72%',
+          end: isDesktop ? '+=950' : '+=460',
+          scrub: 1,
+          pin: isDesktop,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      stableCardTimeline
+        .to(
+          '.stable-card__thumb--front',
+          {
+            x: 160,
+            y: -86,
+            opacity: 0.16,
+            scale: 0.76,
+            rotation: 13,
+            rotationY: -18,
+            duration: 1,
+            ease: 'none',
+          },
+          0
+        )
+        .to(
+          '.stable-card__thumb--middle',
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 1,
+            ease: 'none',
+          },
+          0
+        )
+        .to(
+          '.stable-card__thumb--back',
+          {
+            x: -86,
+            y: 62,
+            opacity: 0.2,
+            scale: 0.78,
+            rotation: -8,
+            duration: 1,
+            ease: 'none',
+          },
+          0
+        )
+        .set('.stable-card__thumb--middle', { zIndex: 3 }, 0.48)
+        .set('.stable-card__thumb--front', { zIndex: 1 }, 0.48)
+        .to(
+          '.stable-card__thumb--middle',
+          {
+            x: -166,
+            y: -84,
+            opacity: 0.16,
+            scale: 0.76,
+            rotation: -13,
+            duration: 1,
+            ease: 'none',
+          },
+          1
+        )
+        .to(
+          '.stable-card__thumb--back',
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 1,
+            ease: 'none',
+          },
+          1
+        )
+        .to(
+          '.stable-card__thumb--front',
+          {
+            x: 92,
+            y: 62,
+            opacity: 0.12,
+            scale: 0.74,
+            rotation: 9,
+            rotationY: -5,
+            duration: 1,
+            ease: 'none',
+          },
+          1
+        )
+        .set('.stable-card__thumb--back', { zIndex: 3 }, 1.48)
+        .set('.stable-card__thumb--middle', { zIndex: 1 }, 1.48);
+    }
+  });
+  // ========================= Stable Card GSAP End =====================
+
+  // ========================= Interactive Features Start =====================
+  if ($('.features-interactive').length) {
+    const updateFeaturePreview = function (index) {
+      const totalImages = $('.features-interactive__image').length;
+      const prevIndex = (index + totalImages - 1) % totalImages;
+      const nextIndex = (index + 1) % totalImages;
+
+      $('.features-interactive__item').removeClass('is-active');
+      $(`.features-interactive__item[data-feature-target="${index}"]`).addClass(
+        'is-active'
+      );
+
+      $('.features-interactive__image')
+        .removeClass('is-active is-prev is-next')
+        .each(function () {
+          const imageIndex = Number($(this).data('feature-image'));
+
+          if (imageIndex === index) {
+            $(this).addClass('is-active');
+          } else if (imageIndex === prevIndex) {
+            $(this).addClass('is-prev');
+          } else if (imageIndex === nextIndex) {
+            $(this).addClass('is-next');
+          }
+        });
+    };
+
+    updateFeaturePreview(0);
+
+    $(document).on(
+      'mouseenter focus click',
+      '.features-interactive__item',
+      function () {
+        updateFeaturePreview(Number($(this).data('feature-target')));
+      }
+    );
+  }
+  // ========================= Interactive Features End =====================
+
   // ========================= Header Sticky Js Start ==============
   $(window).on('scroll', function () {
     if ($(window).scrollTop() >= 300) {
@@ -611,7 +805,6 @@
       const isDesktop = window.matchMedia('(min-width: 1200px)');
 
       if (isDesktop.matches) {
-        // Initial setup for Visa Card (nested inside perspective)
         gsap.set('.usable__phone-container', {
           rotationX: 12,
           rotationY: -10,
@@ -634,19 +827,17 @@
           rotationZ: 0,
         });
 
-        // GSAP ScrollTrigger timeline with PINNING for high-fidelity control
         const usableTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: '.usable',
             start: 'top top',
-            end: '+=1000', // 1000px of elegant scroll depth
+            end: '+=1000',
             scrub: 1,
-            pin: true, // Pin the section
+            pin: true,
             anticipatePin: 1,
           },
         });
 
-        // 1. Straighten the phone and bring it closer
         usableTimeline
           .to('.usable__phone-container', {
             rotationX: 0,
@@ -656,13 +847,13 @@
             duration: 1,
             ease: 'power2.out',
           })
-          // 2. Zoom the Credit Card slightly in place and simultaneously blur & scale down the phone shell!
+
           .to(
             '.usable__card-wrapper',
             {
-              y: -12, // Very subtle upward shift
-              scale: 1.15, // Zoom/scale up the card
-              z: 140, // Pop out in depth
+              y: -12,
+              scale: 1.15,
+              z: 140,
               rotationX: -6,
               rotationY: 10,
               rotationZ: -2,

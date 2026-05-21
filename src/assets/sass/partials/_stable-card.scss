@@ -1,0 +1,283 @@
+/* ======================  Stable-card Section Start  ======================*/
+.stable-card {
+  position: relative;
+  overflow: hidden;
+
+  background-color: hsl(var(--white) / 0.04);
+  .btn-outline--base {
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      color: hsl(var(--black)) !important;
+      border-color: transparent !important;
+
+      &::before,
+      &::after {
+        background: linear-gradient(
+          90deg,
+          hsl(var(--base-two)) 0%,
+          hsl(var(--base)) 100%
+        );
+      }
+    }
+  }
+}
+
+.stable-card {
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @include msm-screen {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 14px;
+    }
+  }
+
+  &__visual {
+    position: relative;
+    min-height: 500px;
+
+    overflow: hidden;
+    perspective: 1200px;
+
+    @include md-screen {
+      margin-top: 46px;
+      min-height: 420px;
+    }
+
+    @include msm-screen {
+      min-height: 330px;
+      border-radius: 24px;
+    }
+  }
+
+  &__glow {
+    position: absolute;
+    inset: 14%;
+    border-radius: 50%;
+    background: hsl(var(--base) / 0.12);
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  &__thumb {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(80%, 640px);
+    will-change: transform, opacity;
+
+    img {
+      width: 100%;
+      display: block;
+      filter: drop-shadow(0 34px 40px hsl(var(--black) / 0.48));
+    }
+
+    &--front {
+      z-index: 3;
+      transform: translate(-50%, -50%) rotateX(0deg) rotateY(-5deg);
+    }
+
+    &--middle,
+    &--back {
+      opacity: 0.18;
+      filter: blur(1px);
+    }
+
+    &--middle {
+      z-index: 2;
+      transform: translate(-43%, -59%) scale(0.86) rotate(-8deg);
+    }
+
+    &--back {
+      z-index: 1;
+      transform: translate(-58%, -41%) scale(0.78) rotate(9deg);
+    }
+  }
+}
+/* ======================  Stable-card Section End  ======================*/
+
+/* ======================  Benefits Section Start  ======================*/
+.benefits {
+  position: relative;
+  overflow: hidden;
+  background-color: hsl(var(--black));
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__header {
+    max-width: 850px;
+    margin: 0 auto 42px;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    color: hsl(var(--white));
+    font-size: clamp(38px, 4.7vw, 64px);
+    line-height: 1.08;
+
+    span {
+      color: hsl(var(--base));
+    }
+  }
+
+  &__desc {
+    margin-bottom: 0;
+    color: hsl(var(--white) / 0.86);
+    font-size: 17px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    background: hsl(var(--white) / 0.015);
+    box-shadow: 0 28px 90px hsl(var(--black) / 0.48);
+
+    @include md-screen {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include msm-screen {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    min-height: 210px;
+    padding: 34px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 2px solid hsl(var(--white) / 0.2);
+    border-bottom: 2px solid hsl(var(--white) / 0.2);
+    transition:
+      background 0.28s ease,
+      transform 0.28s ease;
+
+    &:nth-child(3n) {
+      border-right: 0;
+    }
+
+    &:nth-last-child(-n + 3) {
+      border-bottom: 0;
+    }
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        hsl(var(--base) / 0.12),
+        hsl(var(--white) / 0.025)
+      );
+    }
+
+    &:hover .benefits__icon {
+      color: hsl(var(--black));
+      border-color: transparent;
+      background: linear-gradient(
+        135deg,
+        hsl(var(--base)),
+        hsl(var(--base-two))
+      );
+      transform: translateY(-4px);
+    }
+
+    @include md-screen {
+      &:nth-child(3n) {
+        border-right: 2px solid hsl(var(--white) / 0.34);
+      }
+
+      &:nth-child(2n) {
+        border-right: 0;
+      }
+
+      &:nth-last-child(-n + 3) {
+        border-bottom: 2px solid hsl(var(--white) / 0.34);
+      }
+
+      &:nth-last-child(-n + 2) {
+        border-bottom: 0;
+      }
+    }
+
+    @include msm-screen {
+      min-height: auto;
+      padding: 30px 24px;
+      border-right: 0 !important;
+
+      &:not(:last-child) {
+        border-bottom: 2px solid hsl(var(--base) / 0.34);
+      }
+    }
+  }
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--white));
+    border: 1px solid hsl(var(--white) / 0.12);
+    border-radius: 18px;
+    background: hsl(var(--white) / 0.1);
+    box-shadow: inset 0 1px 0 hsl(var(--white) / 0.08);
+    font-size: 32px;
+    transition: 0.28s ease;
+  }
+
+  &__item-title {
+    max-width: 360px;
+    min-height: 72px;
+    margin-bottom: 0;
+    display: -webkit-box;
+    overflow: hidden;
+    color: hsl(var(--white));
+    font-size: clamp(24px, 1.9vw, 30px);
+    line-height: 1.18;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+/* ======================  Benefits Section End  ======================*/
+
+// how it work
+.how-it-work {
+  background-color: hsl(var(--white) / 0.04);
+
+  &__title {
+    font-size: 22px;
+  }
+  &__item {
+    &__content {
+      background-color: hsl(var(--white) / 0.1);
+      border: 1px solid hsl(var(--border-color) / 0.2);
+
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: -110px;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(20px);
+    }
+  }
+}
+// how it work
